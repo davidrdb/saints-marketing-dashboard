@@ -9,158 +9,71 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #222; }
 
-.header {
-  background: linear-gradient(135deg, #1a3a5c 0%, #2d5986 100%);
-  color: white;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.header { background: linear-gradient(135deg, #1a3a5c 0%, #2d5986 100%); color: white; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 .header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
 .header .subtitle { font-size: 0.82rem; opacity: 0.75; margin-top: 3px; }
 .last-updated { font-size: 0.78rem; opacity: 0.65; white-space: nowrap; }
 .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
-.download-btn {
-  background: #c8a951;
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.82rem;
-  font-family: inherit;
-  white-space: nowrap;
-  transition: background 0.15s;
-}
+.download-btn { background: #c8a951; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.82rem; font-family: inherit; white-space: nowrap; transition: background 0.15s; }
 .download-btn:hover { background: #b69643; }
 
-.tabs {
-  background: #fff;
-  border-bottom: 2px solid #dde2ea;
-  padding: 0 20px;
-  display: flex;
-  gap: 2px;
-  overflow-x: auto;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-.tab-btn {
-  padding: 13px 18px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: #666;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  white-space: nowrap;
-  transition: color 0.15s;
-}
+.tabs { background: #fff; border-bottom: 2px solid #dde2ea; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+.tab-btn { padding: 13px 18px; border: none; background: none; cursor: pointer; font-size: 0.88rem; font-weight: 500; color: #666; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: color 0.15s; }
 .tab-btn:hover { color: #1a3a5c; }
 .tab-btn.active { color: #1a3a5c; border-bottom-color: #c8a951; font-weight: 700; }
 
-.content { padding: 24px; max-width: 1700px; margin: 0 auto; }
+.content { padding: 24px; max-width: 1900px; margin: 0 auto; }
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
 
-.section-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1a3a5c;
-  margin: 28px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #c8a951;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.section-title { font-size: 1rem; font-weight: 700; color: #1a3a5c; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #c8a951; display: flex; align-items: center; gap: 8px; }
 .section-title:first-child { margin-top: 0; }
+.section-sub { font-size: 0.85rem; color: #666; margin: 10px 0 6px; font-weight: 600; }
 
 .table-wrap { overflow-x: auto; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.09); margin-bottom: 8px; }
-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.81rem; min-width: 900px; }
-th {
-  background: #2d5986;
-  color: #fff;
-  padding: 9px 11px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.78rem;
-  white-space: nowrap;
-  position: sticky;
-  top: 0;
-}
-td { padding: 9px 11px; border-bottom: 1px solid #eef0f4; vertical-align: top; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.79rem; min-width: 900px; }
+th { background: #2d5986; color: #fff; padding: 8px 9px; text-align: left; font-weight: 600; font-size: 0.74rem; white-space: nowrap; position: sticky; top: 0; }
+th.phase-th { background: #4a7aaa; text-align: center; min-width: 110px; }
+th.phase-sub { font-size: 0.7rem; font-weight: 600; }
+.phase-label { display: block; font-weight: 400; opacity: 0.8; font-size: 0.65rem; margin-top: 2px; }
+td { padding: 8px 9px; border-bottom: 1px solid #eef0f4; vertical-align: top; line-height: 1.4; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #f5f7fb; }
 
-.badge {
-  display: inline-block;
-  padding: 2px 9px;
-  border-radius: 20px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
+.phase-cell { font-size: 0.74rem; min-width: 110px; }
+.phase-done { color: #2e7d32; }
+.phase-now { background: #fff8d6; color: #6b5b00; font-weight: 600; }
+.phase-future { color: #6b7280; }
+.phase-question { color: #c0392b; font-weight: 600; }
+
+.badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
 .tier-1 { background: #fde8e8; color: #b71c1c; }
 .tier-2 { background: #fff3e0; color: #bf360c; }
 .tier-3 { background: #fffde7; color: #827717; }
 .tier-5 { background: #e8f5e9; color: #1b5e20; }
-
 .status-in-progress { background: #e3f0ff; color: #0d47a1; }
 .status-planning     { background: #f3f3f3; color: #444; }
 .status-continuous   { background: #e8f5e9; color: #2e7d32; }
-.status-concluded    { background: #e8f5e9; color: #2e7d32; }
+.status-posted       { background: #d4edda; color: #155724; }
+.status-done         { background: #d1d5db; color: #1f2937; }
+.status-scheduled    { background: #fff3cd; color: #856404; }
 
-.phase-badge {
-  display: inline-block;
-  padding: 2px 9px;
-  border-radius: 20px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  background: #ede7f6;
-  color: #4527a0;
-  white-space: nowrap;
-}
-
-.notes-cell { max-width: 200px; font-size: 0.78rem; color: #555; line-height: 1.45; }
+.notes-cell { max-width: 220px; font-size: 0.76rem; color: #555; line-height: 1.45; }
 .warn { color: #c0392b; font-weight: 600; }
 
-/* Legend styles */
 .legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 24px; }
 .legend-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.09); overflow: hidden; }
 .legend-card-header { background: #2d5986; color: #fff; padding: 9px 14px; font-weight: 700; font-size: 0.85rem; }
 .legend-card table { box-shadow: none; min-width: unset; font-size: 0.8rem; }
-.legend-card th { background: #4a7aaa; font-size: 0.76rem; padding: 7px 11px; position: static; }
+.legend-card th { background: #4a7aaa; font-size: 0.76rem; padding: 7px 11px; position: static; text-align: left; }
 .legend-card td { padding: 7px 11px; }
 
-.how-to {
-  background: #fff8e6;
-  border-left: 4px solid #c8a951;
-  border-radius: 0 6px 6px 0;
-  padding: 14px 18px;
-  margin-bottom: 24px;
-  font-size: 0.84rem;
-  line-height: 1.7;
-  color: #444;
-}
+.how-to { background: #fff8e6; border-left: 4px solid #c8a951; border-radius: 0 6px 6px 0; padding: 14px 18px; margin-bottom: 24px; font-size: 0.84rem; line-height: 1.7; color: #444; }
 .how-to h3 { color: #1a3a5c; font-size: 0.9rem; margin-bottom: 6px; }
 .how-to ul { margin-left: 18px; }
 
 .approver-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 24px; }
-.approver-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.09);
-  padding: 14px 16px;
-  font-size: 0.82rem;
-}
+.approver-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.09); padding: 14px 16px; font-size: 0.82rem; }
 .approver-card .entity { font-weight: 700; color: #1a3a5c; margin-bottom: 4px; font-size: 0.85rem; }
 .approver-card .approver { color: #555; }
 
@@ -180,7 +93,7 @@ tr:hover td { background: #f5f7fb; }
   </div>
   <div class="header-right">
     <button class="download-btn" onclick="downloadXlsx()">⬇ Download Excel</button>
-    <div class="last-updated">Last updated: 8 May 2026</div>
+    <div class="last-updated">Last updated: 11 May 2026</div>
   </div>
 </div>
 
@@ -199,11 +112,11 @@ tr:hover td { background: #f5f7fb; }
     <div class="how-to">
       <h3>How to use this tracker</h3>
       <ul>
-        <li>Use the tabs above to switch between entities — <strong>Church</strong>, <strong>Saints School</strong>, and <strong>Little Saints</strong>.</li>
-        <li>Each event shows its current <strong>Phase</strong> and <strong>Status</strong>. Check your entity's tab to see what's active and what needs attention.</li>
-        <li><strong>Lead Approver</strong> is the person who signs off content before it goes live. Check this column before publishing anything.</li>
-        <li>⚠️ flags in the Notes column indicate items that need a decision or action. Raise these with David.</li>
-        <li>This tracker is updated by David's coordination team. Contact David if you spot anything that needs correcting.</li>
+        <li>Tabs above split by entity — <strong>Church</strong>, <strong>Saints School</strong>, <strong>Little Saints</strong>.</li>
+        <li>Each event shows its 8 phase columns (P0–P7). Cells use <strong>✓ done</strong>, <strong>🟢 current</strong> (highlighted yellow), <strong>📅 future date</strong>, <strong>❓ to confirm</strong>.</li>
+        <li><strong>Lead Approver</strong> signs off content before publishing. Check before posting.</li>
+        <li>⚠️ flags in Notes mean a decision is needed. Raise with David.</li>
+        <li>Download Excel (top-right) gives you a multi-tab editable copy — edit in Google Sheets, send back to David for the live update.</li>
       </ul>
     </div>
 
@@ -214,27 +127,41 @@ tr:hover td { background: #f5f7fb; }
         <table>
           <thead><tr><th>Tier</th><th>Type</th><th>Target Runway</th></tr></thead>
           <tbody>
-            <tr><td><span class="badge tier-1">Tier 1</span></td><td>Major flagship event</td><td>6–12 months</td></tr>
-            <tr><td><span class="badge tier-2">Tier 2</span></td><td>Significant event</td><td>3–6 months</td></tr>
-            <tr><td><span class="badge tier-3">Tier 3</span></td><td>Standard event</td><td>4–8 weeks</td></tr>
-            <tr><td><span class="badge tier-5">Tier 5</span></td><td>Recurring content &amp; reports</td><td>Ongoing</td></tr>
+            <tr><td><span class="badge tier-1">Tier 1</span></td><td>Major flagship event</td><td>12 months</td></tr>
+            <tr><td><span class="badge tier-2">Tier 2</span></td><td>Significant event</td><td>4 months</td></tr>
+            <tr><td><span class="badge tier-3">Tier 3</span></td><td>Standard event</td><td>6 weeks</td></tr>
+            <tr><td><span class="badge tier-5">Tier 5</span></td><td>Recurring content, ride-alongs &amp; reports</td><td>Ongoing</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="legend-card">
-        <div class="legend-card-header">Campaign Phases (Tier 1 / 2 / 3)</div>
+        <div class="legend-card-header">Campaign Phases — all events use 0–7</div>
         <table>
-          <thead><tr><th>Phase</th><th>Description</th></tr></thead>
+          <thead><tr><th>Phase</th><th>Name</th><th>What happens</th></tr></thead>
           <tbody>
-            <tr><td><span class="phase-badge">Phase 0</span></td><td>WIN meeting — review last year's results</td></tr>
-            <tr><td><span class="phase-badge">Phase 1</span></td><td>Strategy &amp; brief locked</td></tr>
-            <tr><td><span class="phase-badge">Phase 2</span></td><td>Design &amp; content creation</td></tr>
-            <tr><td><span class="phase-badge">Phase 3</span></td><td>Launch — first content live</td></tr>
-            <tr><td><span class="phase-badge">Phase 4</span></td><td>Active promotion window</td></tr>
-            <tr><td><span class="phase-badge">Phase 5</span></td><td>Final push (last 2 weeks)</td></tr>
-            <tr><td><span class="phase-badge">Phase 6</span></td><td>At-event capture</td></tr>
-            <tr><td><span class="phase-badge">Phase 7</span></td><td>Post-event content &amp; WIN</td></tr>
+            <tr><td>P0</td><td>WIN</td><td>Review last year's results (REQUIRED)</td></tr>
+            <tr><td>P1</td><td>Strategy</td><td>Strategy &amp; brief locked</td></tr>
+            <tr><td>P2</td><td>Design</td><td>Design &amp; content creation</td></tr>
+            <tr><td>P3</td><td>Launch</td><td>First content goes live</td></tr>
+            <tr><td>P4</td><td>Promote</td><td>Active promotion window</td></tr>
+            <tr><td>P5</td><td>Final</td><td>Final push (last 2 weeks)</td></tr>
+            <tr><td>P6</td><td>Capture</td><td>At-event photo / video / live</td></tr>
+            <tr><td>P7</td><td>Post + WIN</td><td>Recap content + WIN meeting → feeds next P0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-card-header">Phase Cell Convention</div>
+        <table>
+          <thead><tr><th>Symbol</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><span class="phase-done">✓</span></td><td>Phase complete — short outcome note</td></tr>
+            <tr><td><span class="phase-now">🟢</span></td><td>Phase currently active (cell highlighted)</td></tr>
+            <tr><td><span class="phase-future">📅</span></td><td>Future phase — start date or window</td></tr>
+            <tr><td><span class="phase-question">❓</span></td><td>To confirm</td></tr>
+            <tr><td>—</td><td>Not applicable</td></tr>
           </tbody>
         </table>
       </div>
@@ -244,27 +171,12 @@ tr:hover td { background: #f5f7fb; }
         <table>
           <thead><tr><th>Tag</th><th>Meaning</th></tr></thead>
           <tbody>
-            <tr><td>✅ COMPLETE</td><td>David explicitly confirmed done</td></tr>
-            <tr><td>⚠️ OVERDUE</td><td>Deadline passed, no confirmation</td></tr>
-            <tr><td>❓ UNCONFIRMED</td><td>Status unclear, needs check</td></tr>
-            <tr><td>🚫 REMOVED</td><td>David explicitly cancelled</td></tr>
-            <tr><td><span class="badge status-in-progress">In Progress</span></td><td>Currently active</td></tr>
             <tr><td><span class="badge status-planning">Planning</span></td><td>Not yet launched</td></tr>
-            <tr><td><span class="badge status-continuous">Continuous</span></td><td>Ongoing weekly rhythm</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="legend-card">
-        <div class="legend-card-header">Tier 3 — Simplified Flow</div>
-        <table>
-          <thead><tr><th>Phase</th><th>Description</th></tr></thead>
-          <tbody>
-            <tr><td><span class="phase-badge">Phase 1</span></td><td>Brief + design brief</td></tr>
-            <tr><td><span class="phase-badge">Phase 2</span></td><td>Content created &amp; approved</td></tr>
-            <tr><td><span class="phase-badge">Phase 3</span></td><td>Posts go live</td></tr>
-            <tr><td><span class="phase-badge">Phase 4</span></td><td>At-event capture (if applicable)</td></tr>
-            <tr><td><span class="phase-badge">Phase 5</span></td><td>Post-event content</td></tr>
+            <tr><td><span class="badge status-in-progress">In Progress</span></td><td>Currently active</td></tr>
+            <tr><td><span class="badge status-scheduled">Scheduled</span></td><td>Content ready, awaiting post date</td></tr>
+            <tr><td><span class="badge status-posted">Posted</span></td><td>Content live</td></tr>
+            <tr><td><span class="badge status-done">Done</span></td><td>Complete + WIN captured</td></tr>
+            <tr><td><span class="badge status-continuous">Continuous</span></td><td>Ongoing rhythm</td></tr>
           </tbody>
         </table>
       </div>
@@ -273,26 +185,12 @@ tr:hover td { background: #f5f7fb; }
 
     <div class="section-title">Default Lead Approvers</div>
     <div class="approver-grid">
-      <div class="approver-card">
-        <div class="entity">⛪ Church content</div>
-        <div class="approver">Approver: <strong>David</strong></div>
-      </div>
-      <div class="approver-card">
-        <div class="entity">🏫 Saints content</div>
-        <div class="approver">Approver: <strong>Catharine</strong></div>
-      </div>
-      <div class="approver-card">
-        <div class="entity">🌟 Little Saints content</div>
-        <div class="approver">Approver: <strong>Loise</strong></div>
-      </div>
-      <div class="approver-card">
-        <div class="entity">📱 Parent WhatsApp</div>
-        <div class="approver">Approver: <strong>Catharine</strong></div>
-      </div>
-      <div class="approver-card">
-        <div class="entity">⚡ Same-day posts (any entity)</div>
-        <div class="approver">Approver: <strong>David</strong> (overrides entity default)</div>
-      </div>
+      <div class="approver-card"><div class="entity">⛪ Church content</div><div class="approver">Approver: <strong>David</strong></div></div>
+      <div class="approver-card"><div class="entity">🏫 Saints content</div><div class="approver">Approver: <strong>Catharine</strong></div></div>
+      <div class="approver-card"><div class="entity">🌟 Little Saints content</div><div class="approver">Approver: <strong>Loise</strong></div></div>
+      <div class="approver-card"><div class="entity">📱 Parent Saints WhatsApp</div><div class="approver">Approver: <strong>Catharine</strong></div></div>
+      <div class="approver-card"><div class="entity">📱 Parent LS WhatsApp</div><div class="approver">Approver: <strong>Loise</strong></div></div>
+      <div class="approver-card"><div class="entity">⚡ Same-day posts</div><div class="approver">Approver: <strong>David</strong> (overrides default)</div></div>
     </div>
 
   </div><!-- /legend -->
@@ -300,130 +198,313 @@ tr:hover td { background: #f5f7fb; }
 
   <!-- ═══════════════════════════════ CHURCH TAB ═══════════════════════════════ -->
   <div id="church" class="tab-pane">
-
     <div class="section-title">⭐ Tier 1 — Flagship Events</div>
     <div class="table-wrap"><table id="church-t1"></table></div>
-
     <div class="section-title">🔶 Tier 2 — Significant Events</div>
     <div class="table-wrap"><table id="church-t2"></table></div>
-
     <div class="section-title">🔷 Tier 3 — Standard Events</div>
     <div class="table-wrap"><table id="church-t3"></table></div>
-
-    <div class="section-title">🔁 Tier 5 — Recurring Content</div>
+    <div class="section-title">🔁 Tier 5 — Rolling Content &amp; Ride-Alongs</div>
     <div class="table-wrap"><table id="church-t5"></table></div>
-
-  </div><!-- /church -->
-
+    <div class="section-title">📚 Historical Log</div>
+    <div class="table-wrap"><table id="church-hist"></table></div>
+  </div>
 
   <!-- ═══════════════════════════════ SAINTS TAB ═══════════════════════════════ -->
   <div id="saints" class="tab-pane">
-
     <div class="section-title">⭐ Tier 1 — Flagship Events</div>
     <div class="table-wrap"><table id="saints-t1"></table></div>
-
+    <div class="section-title">🔶 Tier 2 — Significant Events</div>
+    <div class="table-wrap"><table id="saints-t2"></table></div>
     <div class="section-title">🔷 Tier 3 — Standard Events</div>
     <div class="table-wrap"><table id="saints-t3"></table></div>
-
-    <div class="section-title">🏅 Sports Fixtures</div>
-    <div class="table-wrap"><table id="saints-sports"></table></div>
-
-    <div class="section-title">🔁 Tier 5 — Recurring Content &amp; Reports</div>
+    <div class="section-title">🔁 Tier 5 — Rolling Content &amp; Ride-Alongs</div>
+    <div class="section-sub">Weekly rhythms, ride-along posts &amp; reports</div>
     <div class="table-wrap"><table id="saints-t5"></table></div>
-
-  </div><!-- /saints -->
-
+    <div class="section-sub">Sports fixtures</div>
+    <div class="table-wrap"><table id="saints-sports"></table></div>
+    <div class="section-title">📱 Parent Communication on WhatsApp</div>
+    <div class="table-wrap"><table id="saints-pc"></table></div>
+    <div class="section-title">📚 Historical Log</div>
+    <div class="table-wrap"><table id="saints-hist"></table></div>
+  </div>
 
   <!-- ═══════════════════════════════ LITTLE SAINTS TAB ═══════════════════════════════ -->
   <div id="little-saints" class="tab-pane">
-
     <div class="section-title">⭐ Tier 1 — Flagship Events</div>
     <div class="table-wrap"><table id="ls-t1"></table></div>
-
-    <div class="section-title">🔁 Tier 5 — Recurring Content &amp; Reports</div>
+    <div class="section-title">🔶 Tier 2 — Significant Events</div>
+    <div class="table-wrap"><table id="ls-t2"></table></div>
+    <div class="section-title">🔷 Tier 3 — Standard Events</div>
+    <div class="table-wrap"><table id="ls-t3"></table></div>
+    <div class="section-title">🔁 Tier 5 — Rolling Content &amp; Ride-Alongs</div>
     <div class="table-wrap"><table id="ls-t5"></table></div>
-
-  </div><!-- /little-saints -->
+    <div class="section-title">📱 Parent Communication on WhatsApp</div>
+    <div class="table-wrap"><table id="ls-pc"></table></div>
+    <div class="section-title">📚 Historical Log</div>
+    <div class="table-wrap"><table id="ls-hist"></table></div>
+  </div>
 
 </div><!-- /content -->
 
 <script>
 // ─────────────────────────────────────────────────────────────────────────────
-// DATA — update this section when events change. Do not edit the HTML above.
+// DATA — update this section when events change.
+// Standard event row: { name, date, status, lead, designer, phases:{0..7}, approver, notes }
+// Tier 5 ride-along row: { item, date, owner, designer, status, description, approver, notes }
+// Sports row: { fixture, date, designer, lead, posting, capture, postEvent, approver, notes }
+// Parent comms row: { channel, owner, cadence, nextDate, topic, approver, notes }
+// Historical row: { event, dates, tier, year, outcome }
 // ─────────────────────────────────────────────────────────────────────────────
 
-const LAST_UPDATED = "8 May 2026";
+const LAST_UPDATED = "11 May 2026";
 
-// Column order: name, date, phase, status, lead, posting, capture, postEvent, approver, notes
-// tier is implicit (each array maps to one tier section)
+// Helper to make standard 8-phase entries less verbose
+function P(p0,p1,p2,p3,p4,p5,p6,p7) { return {0:p0,1:p1,2:p2,3:p3,4:p4,5:p5,6:p6,7:p7}; }
 
 const DATA = {
 
+  // ─── CHURCH ─────────────────────────────────────────────────────────────────
   church_t1: [
-    { name: "CWI Conference — Kingdom Keys", date: "Oct 9–11, 2026", phase: "1", status: "In Progress", lead: "Renier", posting: "Phase 3: Jun – early Sep", capture: "Marketing team", postEvent: "Aidan (Oct 12–18)", approver: "David", notes: "⚠️ Phase 0 (2025 CWI WIN) — confirm." },
-    { name: "Youth Explosion (YE)", date: "Aug 14–15, 2026", phase: "1", status: "In Progress", lead: "Renier", posting: "May 29 reveal + Jun–Aug", capture: "Marketing team", postEvent: "Aidan (Aug 16–22)", approver: "David", notes: "⚠️ Phase 0 (2025 YE WIN) — confirm. Saints/LS not co-promoted; kids invited only." },
+    { name: "CWI Conference — Kingdom Keys", date: "Oct 9–11, 2026", status: "In Progress", lead: "David", designer: "Aidan", approver: "David",
+      phases: P("✓ 2025 WIN reviewed","✓ Strategy locked Apr–May","✓ Design complete","🟢 Posts live — moving to P4","📅 Jun – early Sep","📅 Sep 14 – Oct 8","📅 Oct 9–11 (Marketing team)","📅 Oct 12–18 (Aidan recap)"),
+      notes: "Finishing P3, moving into P4 active promotion." },
+    { name: "Youth Explosion (YE)", date: "Aug 14–15, 2026", status: "In Progress", lead: "David", designer: "Aidan", approver: "David",
+      phases: P("✓ 2025 YE WIN done","✓ Phase 1 planning done","🟢 Design & content underway","📅 May 29 Theme Reveal Night","📅 Jun – early Aug","📅 Aug 7–13","📅 Aug 14–15 (Marketing team)","📅 Aug 16–22 (Aidan recap)"),
+      notes: "Saints / LS not co-promoted; kids invited via parent comms." },
   ],
 
   church_t2: [
-    { name: "Men's Rivers Conference", date: "May 15–17, 2026", phase: "5", status: "In Progress", lead: "—", posting: "Done", capture: "Marketing team", postEvent: "Renier (May 18–24)", approver: "David", notes: "Booked full. Capture + post pending → Phase 6 = WIN for 2027." },
-    { name: "Marriage Course", date: "May 17–21, 2026", phase: "5", status: "In Progress", lead: "—", posting: "Done", capture: "Internal (light)", postEvent: "Renier (May 22–28)", approver: "David", notes: "Course full. Plan next iteration." },
-    { name: "Marriage Course #2 (placeholder)", date: "TBC (2026 or 2027)", phase: "—", status: "Planning", lead: "—", posting: "—", capture: "—", postEvent: "—", approver: "David", notes: "Awaiting confirmation if a second course runs in 2026." },
-    { name: "Minute to Win It / YE Theme Reveal", date: "May 29, 2026", phase: "3", status: "In Progress", lead: "Renier", posting: "May 8–28", capture: "Marketing team", postEvent: "Aidan reveal video (May 30 – Jun 5)", approver: "David", notes: "Distribution: Church + School staff + select CWI churches. Reveal IS Phase 2 of YE." },
-    { name: "Limpopo Mission Trip", date: "Concluded May 5, 2026", phase: "6", status: "In Progress", lead: "—", posting: "—", capture: "—", postEvent: "Marketing team", approver: "David", notes: "Team returned May 5. WIN meeting pending → triggers Zambia full launch." },
-    { name: "Zambia Mission Trip", date: "Jun/Jul 2026 (TBC)", phase: "1–2", status: "In Progress", lead: "Renier", posting: "Sunday poster live; full deploy post-WIN", capture: "❓ TBD — capture team not selected", postEvent: "Aidan (post-trip)", approver: "David", notes: "Pre-launched. Designs done. Full launch at Limpopo WIN meeting." },
-    { name: "Kids Ignited Service", date: "Sep 6, 2026", phase: "0", status: "Planning", lead: "Renier", posting: "~end May (post-meeting) – Sep 5", capture: "Marketing team", postEvent: "Aidan (Sep 7–13)", approver: "David", notes: "⚠️ Aidan/Loise meeting date pending — meeting IS Phase 0." },
+    { name: "Men's Rivers Conference", date: "May 15–17, 2026", status: "In Progress", lead: "—", designer: "Aidan", approver: "David",
+      phases: P("✓ Last year WIN ❓","✓ Strategy done","✓ Design done","✓ Launched","✓ Promotion done","✓ Final push — booked full","🟢 May 15–17 (Marketing team)","📅 May 18–24 (Renier recap → 2027 WIN)"),
+      notes: "Booked full. Capture + post pending." },
+    { name: "Marriage Course", date: "May 17–21, 2026", status: "In Progress", lead: "—", designer: "Aidan", approver: "David",
+      phases: P("✓ Last year WIN ❓","✓ Strategy done","✓ Design done","✓ Launched","✓ Promotion done","✓ Final push — full","🟢 May 17–21 (internal capture, light)","📅 May 22–28 (Renier wrap; plan next)"),
+      notes: "Course full. Led by Ps Roy + Tannie Nickey. Plan next iteration." },
+    { name: "Marriage Course #2 (placeholder)", date: "TBC (2026 or 2027)", status: "Planning", lead: "—", designer: "—", approver: "David",
+      phases: P("📅 TBC","📅","📅","📅","📅","📅","📅","📅"),
+      notes: "Awaiting confirmation if 2026 second run or 2027." },
+    { name: "Minute to Win It / YE Theme Reveal", date: "May 29, 2026", status: "In Progress", lead: "Renier", designer: "Aidan", approver: "David",
+      phases: P("✓ Last reveal WIN ❓","✓ Strategy locked","✓ Design done","🟢 May 8–28 posts live","📅 May 15–25 promote","📅 May 26–28 final","📅 May 29 (Marketing team)","📅 May 30 – Jun 5 (Aidan reveal video → feeds YE P2)"),
+      notes: "Distribution: Church + School staff + select CWI churches. Event IS Phase 2 of YE." },
+    { name: "Limpopo Mission Trip", date: "Concluded May 5, 2026", status: "In Progress", lead: "—", designer: "Aidan", approver: "David",
+      phases: P("✓ Last trip WIN","✓ Strategy","✓ Design","✓ Launched","✓ Promoted","✓ Pre-trip prep","✓ Trip captured Apr 28 – May 5","🟢 Recap posts + WIN meeting pending → triggers Zambia"),
+      notes: "Team returned May 5. WIN meeting still to book." },
+    { name: "Zambia Mission Trip", date: "Jun/Jul 2026 (TBC)", status: "In Progress", lead: "Renier", designer: "Aidan", approver: "David",
+      phases: P("📅 Limpopo WIN (when booked) → triggers","✓ Strategy done","✓ Designs done","🟢 Sunday poster live — full deploy post-WIN","📅 Post-WIN → Jun/Jul","📅 Final 2 weeks pre-departure","📅 ❓ TBD capture team not selected","📅 Aidan post-trip recap"),
+      notes: "Pre-launched. Full launch at Limpopo WIN meeting." },
+    { name: "Kids Ignited Service", date: "Sep 6, 2026", status: "Planning", lead: "Renier", designer: "Aidan", approver: "David",
+      phases: P("🟢 Aidan ↔ Loise meeting (Phase 0 substitute) — date pending","📅 Post-meeting strategy","📅 Theme + visuals","📅 ~end May launch","📅 Jul – early Sep","📅 Sep 1–5","📅 Sep 6 (Marketing team)","📅 Sep 7–13 (Aidan recap)"),
+      notes: "⚠️ Aidan/Loise meeting date pending — meeting IS Phase 0." },
   ],
 
   church_t3: [
-    { name: "Mothers Day Spa Day", date: "May 16, 2026", phase: "1+2", status: "In Progress", lead: "Renier", posting: "May 5–15", capture: "Tebogo (to be asked)", postEvent: "Renier (May 17–23)", approver: "David", notes: "⚠️ 11 days out — confirm content is live." },
-    { name: "Bootcamp (joint with Saints)", date: "Jun 20, 2026", phase: "1", status: "Planning", lead: "Nelisile", posting: "May 26 – Jun 19", capture: "Nelisile or Aidan", postEvent: "Nelisile or Aidan", approver: "David", notes: "Design and planning lead to be confirmed with team." },
-    { name: "Dance Workshop", date: "Oct 11, 2026", phase: "1", status: "Planning", lead: "Bertie", posting: "Sep 14 – Oct 10", capture: "TBD", postEvent: "Renier (Oct 12–18)", approver: "David", notes: "Bertie already running invites. Adjust if treated as Phase 1." },
+    { name: "Mother's Day Spa Day", date: "May 16, 2026", status: "In Progress", lead: "Renier", designer: "Aidan", approver: "David",
+      phases: P("✓ 2025 WIN ❓","✓ Strategy","✓ Design done","✓ Posts live","🟢 May 5–11 promotion","📅 May 12–15 final push","📅 May 16 (Tebogo to be asked)","📅 May 17–23 (Renier recap)"),
+      notes: "5 days out — confirm content rhythm holding." },
+    { name: "Bootcamp (joint with Saints)", date: "Jun 20, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan + Dikeledi (invite vid)", approver: "David",
+      phases: P("📅 Last bootcamp WIN ❓","✓ Strategy locked","🟢 May 25 – May 30 design (poster + invite vid)","📅 May 31 – Jun 14 launch","📅 Jun 1–14 promote","📅 Jun 15–19 final","📅 Jun 20 (Nelisile or Aidan)","📅 Jun 21–27 recap"),
+      notes: "R30/person, R50/pair. Smoothies + water for sale. Draft deadline May 25." },
+    { name: "Dance Workshop", date: "Oct 11, 2026", status: "Planning", lead: "Bertie", designer: "Aidan", approver: "David",
+      phases: P("🟢 WIN of 2025 ❓ revisit","📅 Strategy TBC","📅 Design TBC","📅 Sep 14 launch window","📅 Sep – Oct 5 promote","📅 Oct 6–10 final","📅 Oct 11 (TBD)","📅 Oct 12–18 (Renier recap)"),
+      notes: "Bertie running invites already. Reset to P0 for proper WIN review." },
+    { name: "Single Mom Brunch", date: "Jun 13, 2026", status: "Planning", lead: "Renier", designer: "Aidan", approver: "David",
+      phases: P("📅 Last event WIN ❓","📅 mid-May strategy","📅 design","📅 launch","📅 promote (incl. schools)","📅 final push","📅 Jun 13 capture","📅 Jun 14–20 recap"),
+      notes: "Kickoff mid-May. Market at schools too." },
+    { name: "F1&2 + Baby Dedication videos", date: "Wed May 27 production → Sun May 31 airs", status: "Planning", lead: "Aidan", designer: "Aidan", approver: "David",
+      phases: P("📅","✓ Strategy","📅 Filming May 27","📅 Edit","📅 Promote pre-air","📅 Final","📅 Airs May 31 service","📅 Recap post"),
+      notes: "Production block Wed May 27. Airs Sun May 31 service." },
   ],
 
   church_t5: [
-    { name: "Weekly Church Content", date: "Ongoing", phase: "Continuous", status: "Continuous", lead: "Renier", posting: "Mon / Wed / Fri", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Tier 5 rail — carries ride-along posts from other tiers." },
+    { item: "Weekly Church Content", date: "Mon / Wed / Fri", owner: "Renier", designer: "Renier/Aidan", status: "Continuous", description: "Tier 5 rail — carries ride-along posts from other tiers.", approver: "David", notes: "Renier monitors Church socials (2hr after-hours window)." },
+    { item: "Mother's Day post (Church)", date: "Posted May 10", owner: "Renier", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "David", notes: "Done yesterday." },
+    { item: "Optima Con (offices renovation)", date: "TBC", owner: "Aidan", designer: "Aidan", status: "Planning", description: "Google review + FB collab for office renovation.", approver: "David", notes: "Owner: Aidan." },
+    { item: "Caleb guest speaker slide", date: "Past week", owner: "Renier", designer: "Aidan", status: "Done", description: "Guest speaker preview slide for Caleb's Sunday.", approver: "David", notes: "Done. Back to normal posting." },
   ],
 
+  church_hist: [],
+
+
+  // ─── SAINTS ─────────────────────────────────────────────────────────────────
   saints_t1: [
-    { name: "Saints + Little Saints Open Day (Saints view)", date: "Aug 1, 2026", phase: "1", status: "Planning", lead: "Loise (lead)", posting: "May 5 – Jul 31 (phased)", capture: "Loise + Aidan + Nelisile", postEvent: "Aidan (Aug 2–8)", approver: "Catharine", notes: "⚠️ Phase 0 — confirm 2025 Open Day WIN. Awaiting full responsibilities doc." },
+    { name: "Saints + Little Saints Open Day (Saints view)", date: "Aug 1, 2026", status: "Planning", lead: "Loise (lead)", designer: "Aidan", approver: "Catharine",
+      phases: P("✓ 2025 Open Day WIN","✓ Phase 1 done","🟢 May 5 – Jun 1 design","📅 Jun 2 – Jul 19 launch + promote (Nelisile)","📅 Jun 2 – Jul 19","📅 Jul 20–31 (Bertie + Nelisile)","📅 Aug 1 (Loise + Aidan + Nelisile)","📅 Aug 2–8 (Aidan recap)"),
+      notes: "Phase 0 + 1 complete. Awaiting full responsibilities doc from David." },
+    { name: "Saints Production", date: "Sep 22–23 (dress rehearsal Sep 21)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 2025 production WIN ❓","📅 Strategy","📅 Design","📅 Launch","📅 Promote","📅 Final push","📅 Sep 22–23 capture","📅 Recap"),
+      notes: "Major school production." },
+  ],
+
+  saints_t2: [
+    { name: "Permanent paid ad campaign (Saints view)", date: "Starts after current LS run (post Thu 7 May)", status: "Planning", lead: "David", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 Pilot WIN ❓","🟢 Strategy in progress","📅 Design","📅 Launch","📅 Promote","📅 N/A (continuous)","📅 N/A","📅 N/A"),
+      notes: "Che approved 5 May. Joint with LS. Budget TBD." },
   ],
 
   saints_t3: [
-    { name: "Fit to Lead", date: "No date set yet", phase: "1", status: "Planning", lead: "Nelisile", posting: "May 26 – Jun 20", capture: "N/A", postEvent: "N/A", approver: "Catharine", notes: "Internal leadership programme — showcased on Saints Socials. Not a public event." },
-    { name: "Bootcamp (joint with Church)", date: "Jun 20, 2026", phase: "1", status: "Planning", lead: "Nelisile", posting: "May 26 – Jun 19", capture: "Nelisile or Aidan", postEvent: "Nelisile or Aidan", approver: "David", notes: "Design and planning lead to be confirmed with team." },
-  ],
-
-  saints_sports: [
-    { name: "SSS — Saints Sports Day", date: "May 8, 2026 (Fri)", lead: "Nelisile", posting: "6 or 7 May", capture: "No", postEvent: "Nelisile (11 May)", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "SSS — Saints Sports Day", date: "May 9, 2026 (Sat)", lead: "Nelisile", posting: "6 or 7 May", capture: "No", postEvent: "Nelisile (11 May)", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "SSS — Saints Sports Day", date: "May 10, 2026 (Sun)", lead: "Nelisile", posting: "6 or 7 May", capture: "No", postEvent: "Nelisile (11 May)", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "Primary Champs Netball", date: "May 12, 2026 (Tue)", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "Secondary Champs Netball", date: "May 13, 2026 (Wed)", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "SACSA", date: "May 16, 2026 (Sat)", lead: "Nelisile", posting: "On the Day", capture: "Nelisile", postEvent: "Nelisile (Same Day)", approver: "David", notes: "Same-day post — David approves." },
-    { name: "SACSA", date: "May 23, 2026 (Sat)", lead: "Saints comms", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "SACSA", date: "May 30, 2026 (Sat)", lead: "Saints comms", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "Junior Netball District Champs", date: "May 30, 2026 (Sat)", lead: "Saints comms", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
-    { name: "SACSA", date: "Jun 6, 2026 (Sat)", lead: "Saints comms", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Per-fixture allocations TBD." },
+    { name: "Fit to Lead", date: "No date set yet", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 Concept lock NOW (David + Aidan + Nelisile)","📅 Capture plan","📅 Filming","📅 Edit","📅 Post to Saints Socials","📅 —","📅 —","📅 —"),
+      notes: "Internal leadership programme captured for content. Not a public event — At-event / Post-event N/A." },
+    { name: "Bootcamp (joint with Church)", date: "Jun 20, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan + Dikeledi", approver: "David",
+      phases: P("📅 Last bootcamp WIN ❓","✓ Strategy locked","🟢 May 25 – May 30 design","📅 May 31 – Jun 14 launch","📅 Jun 1–14 promote","📅 Jun 15–19 final","📅 Jun 20","📅 Jun 21–27"),
+      notes: "Same event as Church tab. Joint Church + Saints (NOT Little Saints)." },
+    { name: "Formal Ball", date: "Jun 23, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 Last ball WIN ❓","📅 Strategy","📅 Design","📅 Launch","📅 Promote","📅 Final","📅 Jun 23 capture","📅 Recap"),
+      notes: "" },
+    { name: "Eistedfodd Choir QQ", date: "Jun 29 – Jul 31", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 Last Eistedfodd WIN ❓","📅","📅","📅 Late Jun launch","📅 Jul promote","📅 Late Jul","📅 Performances Jul","📅 Aug recap"),
+      notes: "Intensive choir period." },
+    { name: "PAWS Drive (\"Winter Drive\" on calendar)", date: "Apr 20 → May 20 Distribution", status: "In Progress", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("✓ 2025 WIN ❓","✓ Strategy","✓ Design","✓ Apr 20 launch","✓ Active throughout April","🟢 May 12–19 final push","📅 May 20 Distribution Day","📅 May 21–27 recap"),
+      notes: "Distribution Day May 20 — capture team needed." },
+    { name: "Dignity Drive", date: "Jul 24 (start) → Aug 26 ongoing", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 Last Dignity Drive WIN ❓","📅","📅","📅 Jul 24 launch","📅 Aug promote","📅","📅","📅"),
+      notes: "Per Saints Calendar 2026." },
+    { name: "Schoonspruit FAST 5s", date: "Aug 22, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Aug 22","📅"),
+      notes: "" },
+    { name: "A-Arts Dance Festival QQ", date: "Sep 19, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Sep 19","📅"),
+      notes: "" },
+    { name: "Talent Africa Nationals QQ", date: "Sep 30, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Sep 30","📅"),
+      notes: "" },
+    { name: "Matric Farewell", date: "Oct 16, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 2025 Matric Farewell WIN ❓","📅","📅","📅","📅","📅","📅 Oct 16","📅"),
+      notes: "" },
+    { name: "Thanksgiving Feast", date: "Oct 28, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Oct 28","📅"),
+      notes: "" },
+    { name: "Dance World Cup QQ", date: "Oct 27–31, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Oct 27–31","📅 Nov recap"),
+      notes: "5-day event." },
+    { name: "Hope for All Walk", date: "Oct 31, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Oct 31","📅"),
+      notes: "" },
+    { name: "Christmas Drive", date: "Nov 16 (start)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅 Nov 16 launch","📅 Nov-Dec promote","📅","📅","📅"),
+      notes: "" },
+    { name: "Matric Service", date: "Nov 20, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 20","📅"),
+      notes: "Closing event day — 3 events on Nov 20." },
+    { name: "Dance End Year Function", date: "Nov 20, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 20","📅"),
+      notes: "Closing event day." },
+    { name: "Focus2Lead", date: "Nov 20, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 20","📅"),
+      notes: "Closing event day." },
+    { name: "Fun Day + Leadership Camps", date: "Nov 23–27, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 23–27","📅"),
+      notes: "Compulsory attendance week." },
+    { name: "Awards Ceremony — Gr 1–3", date: "Nov 30, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 30","📅"),
+      notes: "Grade groupings TBC." },
+    { name: "Awards Ceremony — Gr 4–7", date: "Dec 1, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Dec 1","📅"),
+      notes: "Grade groupings TBC." },
+    { name: "Awards Ceremony — High School", date: "Dec 2, 2026", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Dec 2","📅"),
+      notes: "Grade groupings TBC." },
+    { name: "Internal Soccer — Gr RR / R / U11G", date: "Oct 24, 2026 (Sat)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Oct 24","📅"),
+      notes: "Internal tournament." },
+    { name: "Internal Soccer — Gr 1 / U11B", date: "Oct 31, 2026 (Sat)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Oct 31","📅"),
+      notes: "Internal tournament." },
+    { name: "Internal Soccer — Gr 2", date: "Nov 7, 2026 (Sat)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 7","📅"),
+      notes: "Internal tournament." },
+    { name: "Internal Soccer — Gr 3", date: "Nov 14, 2026 (Sat)", status: "Planning", lead: "Nelisile", designer: "Aidan", approver: "Catharine",
+      phases: P("📅 ❓","📅","📅","📅","📅","📅","📅 Nov 14","📅"),
+      notes: "Internal tournament." },
   ],
 
   saints_t5: [
-    { name: "Weekly Saints Content", date: "Ongoing", phase: "Continuous", status: "Continuous", lead: "Nelisile", posting: "Mon / Wed / Fri", capture: "N/A", postEvent: "N/A", approver: "Catharine", notes: "Tier 5 rail." },
-    { name: "Parent WhatsApp Group Comms", date: "Ongoing", phase: "Continuous", status: "Continuous", lead: "Bertie", posting: "As needed", capture: "N/A", postEvent: "N/A", approver: "Catharine", notes: "Standing Mon 09:30 check-in with David." },
-    { name: "Saints Board Report Q2", date: "Jun 22, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
-    { name: "Saints Board Report Q3", date: "Sep 14, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
-    { name: "Saints Board Report Q4", date: "Nov 23, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
+    { item: "Weekly Saints Content", date: "Mon / Wed / Fri", owner: "Nelisile", designer: "Nelisile/Aidan", status: "Continuous", description: "Tier 5 rail. Nelisile monitors Saints socials (2hr after-hours).", approver: "Catharine", notes: "Also handles New Parent Finding & Converting." },
+    { item: "Mother's Day post (Saints)", date: "Posted May 10", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "Catharine", notes: "Done yesterday." },
+    { item: "Saints Board Report Q2", date: "Jun 22, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Saints Board Report Q3", date: "Sep 14, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Saints Board Report Q4", date: "Nov 23, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Winter School Gr 12", date: "Jun 29 – Jul 17", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Intensive Gr 12 winter school programme.", approver: "Catharine", notes: "" },
+    { item: "Quarterly Content Check", date: "Quarterly", owner: "David + content leads", designer: "—", status: "Continuous", description: "Bible Club post + Project Padi post + Birthdays-in-Metricool audit.", approver: "David", notes: "Triggered once per quarter." },
+    { item: "Cake & Candy (Gr 5K, 10, 7s)", date: "May 8, 2026", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Class fundraiser captured + posted.", approver: "Catharine", notes: "Past — confirm post live." },
+    { item: "Teacher Workshop #1", date: "May 8–9", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Teacher workshop content.", approver: "Catharine", notes: "Past." },
+    { item: "Teacher Workshop #2", date: "May 12, 14:00", owner: "Nelisile", designer: "Aidan", status: "Scheduled", description: "Christian Teacher Workshop content.", approver: "Catharine", notes: "Tomorrow." },
+    { item: "KYB visit at Saints", date: "May 13, 08:00", owner: "Nelisile", designer: "Aidan", status: "Scheduled", description: "Capture + post.", approver: "Catharine", notes: "David on Gathering planning block — Marketing handles." },
+    { item: "Drama during Assembly", date: "May 18", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Capture + post.", approver: "Catharine", notes: "" },
+    { item: "Saints Staff Foundations capture", date: "May 18–19", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Capture for Foundations training (new staff).", approver: "Catharine", notes: "Awaiting times from Aimee." },
+    { item: "NWU space visit", date: "May 20", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Capture + post.", approver: "Catharine", notes: "" },
+    { item: "Market Day (whole school)", date: "Jun 5", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Capture + post.", approver: "Catharine", notes: "David confirming — re-flag if bigger push needed." },
+    { item: "Marna's Friday creative classes", date: "Recurring Fridays", owner: "Nelisile", designer: "Aidan", status: "Continuous", description: "Saints Aftercare creative classes — marketing-aware.", approver: "Catharine", notes: "" },
+    { item: "ChiBooks × Saints learners collab", date: "TBC", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "One-time post — Nelisile schedules into weekly cadence.", approver: "Catharine", notes: "" },
+    { item: "Security cameras joint post (Saints view)", date: "This week", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Saints + LS joint topic. Topic #2 ❓ to be discovered.", approver: "Catharine", notes: "Joint — paired row in LS tab." },
+    { item: "2027 applications campaign (Saints view)", date: "Multi-month", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Social media for 2027 applications. May absorb into permanent paid ad campaign.", approver: "Catharine", notes: "Joint with LS." },
   ],
 
+  saints_sports: [
+    { fixture: "SSS-Provincials Soccer", date: "May 8, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", posting: "May 15 post (approval ask May 11)", capture: "No", postEvent: "Nelisile (May 15)", approver: "Catharine", notes: "Recap on May 15 covers all 3 SSS days." },
+    { fixture: "SSS-Provincials Soccer", date: "May 9, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "May 15 post (approval ask May 11)", capture: "No", postEvent: "Nelisile (May 15)", approver: "Catharine", notes: "Combined recap." },
+    { fixture: "SSS-Provincials Soccer", date: "May 10, 2026 (Sun)", designer: "Aidan", lead: "Nelisile", posting: "May 15 post (approval ask May 11)", capture: "No", postEvent: "Nelisile (May 15)", approver: "Catharine", notes: "Combined recap." },
+    { fixture: "Gimmies Netball", date: "May 8, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "Gimmies Netball", date: "May 9, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "SACSA", date: "May 16, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "On the Day", capture: "Nelisile", postEvent: "Nelisile (Same Day)", approver: "David", notes: "Same-day post — David approves." },
+    { fixture: "SACSA", date: "May 23, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "SACSA", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "Junior Netball District Champs", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "SACSA", date: "Jun 6, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "Primary Champs Netball", date: "Jun 12, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Date corrected — was wrongly listed May 12." },
+    { fixture: "Secondary Champs Netball", date: "Jun 13, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Date corrected — was wrongly listed May 13." },
+    { fixture: "Waterstone College Soccer", date: "Jun 26, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "No school day." },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 6, 2026 (Thu)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Multi-day national tournament." },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 7, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 8, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "" },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 9, 2026 (Sun)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Women's Day." },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 10, 2026 (Mon)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Public Holiday." },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 11, 2026 (Tue)", designer: "Aidan", lead: "Nelisile", posting: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", approver: "Catharine", notes: "Final day." },
+  ],
+
+  saints_pc: [
+    { channel: "Saints Parent WhatsApp", owner: "Bertie", cadence: "As needed", nextDate: "❓ TBD", topic: "❓ TBD", approver: "Catharine", notes: "Standing Mon 09:30 check-in with David." },
+  ],
+
+  saints_hist: [],
+
+
+  // ─── LITTLE SAINTS ──────────────────────────────────────────────────────────
   ls_t1: [
-    { name: "Saints + Little Saints Open Day (Little Saints view)", date: "Aug 1, 2026", phase: "1", status: "Planning", lead: "Loise (lead)", posting: "May 5 – Jul 31 (phased)", capture: "Loise + Aidan + Tebogo", postEvent: "Aidan (Aug 2–8)", approver: "Loise", notes: "⚠️ Phase 0 — confirm 2025 Open Day WIN. Awaiting full responsibilities doc." },
+    { name: "Saints + Little Saints Open Day (Little Saints view)", date: "Aug 1, 2026", status: "Planning", lead: "Loise (lead)", designer: "Aidan", approver: "Loise",
+      phases: P("✓ 2025 Open Day WIN","✓ Phase 1 done","🟢 May 5 – Jun 1 design","📅 Jun 2 – Jul 19 launch + promote (Tebogo)","📅 Jun 2 – Jul 19","📅 Jul 20–31 (Tebogo + Bertie)","📅 Aug 1 (Loise + Aidan + Tebogo)","📅 Aug 2–8 (Aidan recap)"),
+      notes: "Phase 0 + 1 complete. Awaiting full responsibilities doc from David." },
+  ],
+
+  ls_t2: [
+    { name: "Permanent paid ad campaign (LS view)", date: "Starts after current LS run (post Thu 7 May)", status: "Planning", lead: "David", designer: "Aidan", approver: "Loise",
+      phases: P("📅 Pilot WIN ❓","🟢 Strategy in progress","📅 Design","📅 Launch","📅 Promote","📅 N/A (continuous)","📅 N/A","📅 N/A"),
+      notes: "Che approved 5 May. Joint with Saints. Budget TBD." },
+  ],
+
+  ls_t3: [
+    { name: "Family Fun Day (Little Saints)", date: "May 30, 2026", status: "Planning", lead: "Tebogo", designer: "Aidan", approver: "Loise",
+      phases: P("📅 Last Fun Day WIN ❓","🟢 Strategy","📅 Design","📅 Launch","📅 Promote","📅 Final","📅 May 30 (Tebogo)","📅 Recap"),
+      notes: "Tebogo captures + posts; David sets expectations." },
   ],
 
   ls_t5: [
-    { name: "Weekly Little Saints Content", date: "Ongoing", phase: "Continuous", status: "Continuous", lead: "Tebogo", posting: "2x weekly", capture: "N/A", postEvent: "N/A", approver: "Loise", notes: "Tier 5 rail." },
-    { name: "Little Saints Board Report Q2", date: "Jun 8, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
-    { name: "Little Saints Board Report Q3", date: "Sep 7, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
-    { name: "Little Saints Board Report Q4", date: "Nov 16, 2026", phase: "—", status: "Planning", lead: "David (~1 hr)", posting: "—", capture: "N/A", postEvent: "N/A", approver: "David", notes: "Quarterly board report." },
+    { item: "Weekly Little Saints Content", date: "2x weekly", owner: "Tebogo", designer: "Tebogo/Aidan", status: "Continuous", description: "Tier 5 rail. Tebogo monitors LS socials (2hr after-hours).", approver: "Loise", notes: "" },
+    { item: "Mother's Day post (Little Saints)", date: "Posted May 10", owner: "Tebogo", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "Loise", notes: "Done yesterday." },
+    { item: "Little Saints Board Report Q2", date: "Jun 8, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Little Saints Board Report Q3", date: "Sep 7, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Little Saints Board Report Q4", date: "Nov 16, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
+    { item: "Security cameras joint post (LS view)", date: "This week", owner: "Tebogo", designer: "Aidan", status: "Planning", description: "Saints + LS joint topic. Topic #2 ❓ to be discovered.", approver: "Loise", notes: "Joint — paired row in Saints tab." },
+    { item: "2027 applications campaign (LS view)", date: "Multi-month", owner: "Tebogo", designer: "Aidan", status: "Planning", description: "Social media for 2027 applications.", approver: "Loise", notes: "Joint with Saints." },
   ],
+
+  ls_pc: [
+    { channel: "Little Saints Parent WhatsApp", owner: "Tebogo", cadence: "As needed", nextDate: "❓ TBD", topic: "❓ TBD", approver: "Loise", notes: "" },
+  ],
+
+  ls_hist: [],
 
 };
 
@@ -433,91 +514,151 @@ const DATA = {
 
 document.querySelector('.last-updated').textContent = 'Last updated: ' + LAST_UPDATED;
 
-function tierBadge(t) {
-  if (!t && t !== 0) return '';
-  return `<span class="badge tier-${t}">T${t}</span>`;
-}
-
-function phaseBadge(p) {
-  if (!p || p === '—') return '<span style="color:#aaa">—</span>';
-  return `<span class="phase-badge">${p}</span>`;
+function phaseCellHTML(cellValue) {
+  if (!cellValue || cellValue === '—') return '<span class="phase-future">—</span>';
+  const cls = cellValue.startsWith('✓') ? 'phase-done'
+            : cellValue.startsWith('🟢') ? 'phase-now'
+            : cellValue.startsWith('❓') ? 'phase-question'
+            : 'phase-future';
+  return `<span class="${cls}">${cellValue}</span>`;
 }
 
 function statusBadge(s) {
   if (!s) return '';
-  const map = {
-    'In Progress': 'status-in-progress',
-    'Planning': 'status-planning',
-    'Continuous': 'status-continuous',
-    'Concluded': 'status-concluded',
-  };
+  const map = {'In Progress':'status-in-progress','Planning':'status-planning','Continuous':'status-continuous','Posted':'status-posted','Done':'status-done','Scheduled':'status-scheduled','Concluded':'status-done'};
   const cls = map[s] || 'status-planning';
   return `<span class="badge ${cls}">${s}</span>`;
 }
 
 function notesCells(n) {
   if (!n) return '';
-  const highlighted = n.replace(/⚠️/g, '<span class="warn">⚠️</span>').replace(/❓/g, '<span style="color:#e67e22">❓</span>');
-  return highlighted;
+  return n.replace(/⚠️/g, '<span class="warn">⚠️</span>').replace(/❓/g, '<span style="color:#e67e22">❓</span>');
 }
 
-function buildStandardTable(tableEl, rows) {
+function buildPhasedTable(tableEl, rows) {
+  if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>No events</th></tr></thead>'; return; }
+  const phaseLabels = ['WIN','Strategy','Design','Launch','Promote','Final','Capture','Post + WIN'];
+  const phaseHead = phaseLabels.map((lbl,i) => `<th class="phase-th phase-sub">P${i}<span class="phase-label">${lbl}</span></th>`).join('');
   tableEl.innerHTML = `
     <thead><tr>
-      <th>Event</th><th>Date</th><th>Phase</th><th>Status</th>
-      <th>Marketing Lead</th><th>Posting Window</th>
-      <th>At-Event Capture</th><th>Post-Event</th>
-      <th>Lead Approver</th><th>Notes</th>
+      <th>Event</th><th>Date</th><th>Status</th><th>Mkt Lead</th><th>Designer</th>
+      ${phaseHead}
+      <th>Approver</th><th>Notes</th>
+    </tr></thead>
+    <tbody>${rows.map(r => {
+      const phaseCells = [0,1,2,3,4,5,6,7].map(p => `<td class="phase-cell">${phaseCellHTML(r.phases && r.phases[p])}</td>`).join('');
+      return `<tr>
+        <td style="font-weight:600;min-width:180px">${r.name}</td>
+        <td style="white-space:nowrap">${r.date}</td>
+        <td>${statusBadge(r.status)}</td>
+        <td>${r.lead || '—'}</td>
+        <td>${r.designer || '—'}</td>
+        ${phaseCells}
+        <td><strong>${r.approver || '—'}</strong></td>
+        <td class="notes-cell">${notesCells(r.notes)}</td>
+      </tr>`;
+    }).join('')}</tbody>`;
+}
+
+function buildTier5Table(tableEl, rows) {
+  if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>—</th></tr></thead>'; return; }
+  tableEl.innerHTML = `
+    <thead><tr>
+      <th>Item</th><th>Date / Cadence</th><th>Owner</th><th>Designer</th><th>Status</th>
+      <th>Description / Next</th><th>Approver</th><th>Notes</th>
     </tr></thead>
     <tbody>${rows.map(r => `
       <tr>
-        <td style="font-weight:600;min-width:180px">${r.name}</td>
-        <td style="white-space:nowrap">${r.date}</td>
-        <td>${phaseBadge(r.phase)}</td>
+        <td style="font-weight:600;min-width:180px">${r.item}</td>
+        <td style="white-space:nowrap">${r.date || '—'}</td>
+        <td>${r.owner || '—'}</td>
+        <td>${r.designer || '—'}</td>
         <td>${statusBadge(r.status)}</td>
-        <td>${r.lead || '—'}</td>
-        <td>${r.posting || '—'}</td>
-        <td>${r.capture || '—'}</td>
-        <td>${r.postEvent || '—'}</td>
+        <td class="notes-cell">${notesCells(r.description || '')}</td>
         <td><strong>${r.approver || '—'}</strong></td>
         <td class="notes-cell">${notesCells(r.notes)}</td>
-      </tr>`).join('')}
-    </tbody>`;
+      </tr>`).join('')}</tbody>`;
 }
 
 function buildSportsTable(tableEl, rows) {
+  if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>—</th></tr></thead>'; return; }
   tableEl.innerHTML = `
     <thead><tr>
-      <th>Fixture</th><th>Date</th>
-      <th>Designer</th><th>Posting Window</th>
-      <th>At-Event Capture</th><th>Post-Event</th>
-      <th>Lead Approver</th><th>Notes</th>
+      <th>Fixture</th><th>Date</th><th>Designer</th><th>Mkt Lead</th>
+      <th>Posting Window</th><th>At-Event Capture</th><th>Post-Event</th>
+      <th>Approver</th><th>Notes</th>
     </tr></thead>
     <tbody>${rows.map(r => `
       <tr>
-        <td style="font-weight:600;min-width:180px">${r.name}</td>
+        <td style="font-weight:600;min-width:180px">${r.fixture}</td>
         <td style="white-space:nowrap">${r.date}</td>
+        <td>${r.designer || '—'}</td>
         <td>${r.lead || '—'}</td>
         <td>${r.posting || '—'}</td>
         <td>${r.capture || '—'}</td>
         <td>${r.postEvent || '—'}</td>
         <td><strong>${r.approver || '—'}</strong></td>
         <td class="notes-cell">${notesCells(r.notes)}</td>
-      </tr>`).join('')}
-    </tbody>`;
+      </tr>`).join('')}</tbody>`;
+}
+
+function buildParentCommsTable(tableEl, rows) {
+  if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>—</th></tr></thead>'; return; }
+  tableEl.innerHTML = `
+    <thead><tr>
+      <th>Channel</th><th>Owner</th><th>Cadence</th>
+      <th>Next Communication</th><th>Topic / Content</th>
+      <th>Approver</th><th>Notes</th>
+    </tr></thead>
+    <tbody>${rows.map(r => `
+      <tr>
+        <td style="font-weight:600">${r.channel}</td>
+        <td>${r.owner || '—'}</td>
+        <td>${r.cadence || '—'}</td>
+        <td style="white-space:nowrap">${r.nextDate || '—'}</td>
+        <td class="notes-cell">${r.topic || '—'}</td>
+        <td><strong>${r.approver || '—'}</strong></td>
+        <td class="notes-cell">${notesCells(r.notes)}</td>
+      </tr>`).join('')}</tbody>`;
+}
+
+function buildHistoricalTable(tableEl, rows) {
+  if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>Event</th><th>Date(s)</th><th>Tier</th><th>Year</th><th>Outcome / WIN Notes</th></tr></thead><tbody><tr><td colspan="5" style="text-align:center;color:#999;padding:14px">No completed events yet — events move here once Phase 7 is done.</td></tr></tbody>'; return; }
+  tableEl.innerHTML = `
+    <thead><tr>
+      <th>Event</th><th>Date(s)</th><th>Tier</th><th>Year</th><th>Outcome / WIN Notes</th>
+    </tr></thead>
+    <tbody>${rows.map(r => `
+      <tr>
+        <td style="font-weight:600">${r.event}</td>
+        <td>${r.dates}</td>
+        <td>${r.tier || ''}</td>
+        <td>${r.year}</td>
+        <td class="notes-cell">${notesCells(r.outcome)}</td>
+      </tr>`).join('')}</tbody>`;
 }
 
 // Render all tables
-buildStandardTable(document.getElementById('church-t1'), DATA.church_t1);
-buildStandardTable(document.getElementById('church-t2'), DATA.church_t2);
-buildStandardTable(document.getElementById('church-t3'), DATA.church_t3);
-buildStandardTable(document.getElementById('church-t5'), DATA.church_t5);
-buildStandardTable(document.getElementById('saints-t1'), DATA.saints_t1);
-buildStandardTable(document.getElementById('saints-t3'), DATA.saints_t3);
+buildPhasedTable(document.getElementById('church-t1'), DATA.church_t1);
+buildPhasedTable(document.getElementById('church-t2'), DATA.church_t2);
+buildPhasedTable(document.getElementById('church-t3'), DATA.church_t3);
+buildTier5Table(document.getElementById('church-t5'), DATA.church_t5);
+buildHistoricalTable(document.getElementById('church-hist'), DATA.church_hist);
+
+buildPhasedTable(document.getElementById('saints-t1'), DATA.saints_t1);
+buildPhasedTable(document.getElementById('saints-t2'), DATA.saints_t2);
+buildPhasedTable(document.getElementById('saints-t3'), DATA.saints_t3);
+buildTier5Table(document.getElementById('saints-t5'), DATA.saints_t5);
 buildSportsTable(document.getElementById('saints-sports'), DATA.saints_sports);
-buildStandardTable(document.getElementById('saints-t5'), DATA.saints_t5);
-buildStandardTable(document.getElementById('ls-t1'), DATA.ls_t1);
-buildStandardTable(document.getElementById('ls-t5'), DATA.ls_t5);
+buildParentCommsTable(document.getElementById('saints-pc'), DATA.saints_pc);
+buildHistoricalTable(document.getElementById('saints-hist'), DATA.saints_hist);
+
+buildPhasedTable(document.getElementById('ls-t1'), DATA.ls_t1);
+buildPhasedTable(document.getElementById('ls-t2'), DATA.ls_t2);
+buildPhasedTable(document.getElementById('ls-t3'), DATA.ls_t3);
+buildTier5Table(document.getElementById('ls-t5'), DATA.ls_t5);
+buildParentCommsTable(document.getElementById('ls-pc'), DATA.ls_pc);
+buildHistoricalTable(document.getElementById('ls-hist'), DATA.ls_hist);
 
 // Tab switching
 function showTab(id, btn) {
@@ -528,53 +669,90 @@ function showTab(id, btn) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// EXCEL DOWNLOAD — builds a multi-tab xlsx from DATA. Round-trip ready:
-// David edits in Google Sheets, downloads xlsx, sends back, Claude parses
-// changes and updates DATA in this file. Keep column headers unchanged for
-// parsing to work.
+// EXCEL DOWNLOAD — multi-tab xlsx for editing in Google Sheets
 // ─────────────────────────────────────────────────────────────────────────────
 function downloadXlsx() {
-  if (typeof XLSX === 'undefined') {
-    alert('Excel library not loaded. Check your internet connection and reload the page, then try again.');
-    return;
-  }
+  if (typeof XLSX === 'undefined') { alert('Excel library not loaded. Check internet and reload.'); return; }
   const wb = XLSX.utils.book_new();
-  const STD = ['Tier','Event','Date','Phase','Status','Marketing Lead','Posting Window','At-Event Capture','Post-Event','Lead Approver','Notes'];
-  const SPORTS = ['Tier','Fixture','Date','Designer','Posting Window','At-Event Capture','Post-Event','Lead Approver','Notes'];
-  const stdRow = (t,r) => [t, r.name||'', r.date||'', r.phase||'', r.status||'', r.lead||'', r.posting||'', r.capture||'', r.postEvent||'', r.approver||'', r.notes||''];
-  const sportsRow = (t,r) => [t, r.name||'', r.date||'', r.lead||'', r.posting||'', r.capture||'', r.postEvent||'', r.approver||'', r.notes||''];
-  const stdCols = [{wch:6},{wch:42},{wch:22},{wch:9},{wch:14},{wch:18},{wch:28},{wch:28},{wch:28},{wch:14},{wch:55}];
+  const STD = ['Tier','Event','Date','Status','Marketing Lead','Designer','P0 WIN','P1 Strategy','P2 Design','P3 Launch','P4 Promote','P5 Final','P6 Capture','P7 Post+WIN','Lead Approver','Notes'];
+  const T5 = ['Tier','Item','Date / Cadence','Owner','Designer','Status','Description / Next','Lead Approver','Notes'];
+  const SPORTS = ['Tier','Fixture','Date','Designer','Marketing Lead','Posting Window','At-Event Capture','Post-Event','Lead Approver','Notes'];
+  const PC = ['Channel','Owner','Cadence','Next Communication','Topic / Content','Lead Approver','Notes'];
+  const HIST = ['Event','Date(s)','Tier','Year','Outcome / WIN Notes'];
 
-  // Legend
+  const stdRow = (t,r) => [t, r.name, r.date, r.status, r.lead||'', r.designer||'', (r.phases&&r.phases[0])||'', (r.phases&&r.phases[1])||'', (r.phases&&r.phases[2])||'', (r.phases&&r.phases[3])||'', (r.phases&&r.phases[4])||'', (r.phases&&r.phases[5])||'', (r.phases&&r.phases[6])||'', (r.phases&&r.phases[7])||'', r.approver||'', r.notes||''];
+  const t5Row = (t,r) => [t, r.item, r.date||'', r.owner||'', r.designer||'', r.status||'', r.description||'', r.approver||'', r.notes||''];
+  const sportsRow = (t,r) => [t, r.fixture, r.date, r.designer||'', r.lead||'', r.posting||'', r.capture||'', r.postEvent||'', r.approver||'', r.notes||''];
+  const pcRow = (r) => [r.channel, r.owner||'', r.cadence||'', r.nextDate||'', r.topic||'', r.approver||'', r.notes||''];
+  const histRow = (r) => [r.event, r.dates, r.tier||'', r.year, r.outcome||''];
+
+  function addEntity(key, label) {
+    const t1 = DATA[key+'_t1'] || [];
+    const t2 = DATA[key+'_t2'] || [];
+    const t3 = DATA[key+'_t3'] || [];
+    const t5 = DATA[key+'_t5'] || [];
+    const sports = DATA[key+'_sports'] || [];
+    const pc = DATA[key+'_pc'] || [];
+    const hist = DATA[key+'_hist'] || [];
+
+    const std = [STD];
+    t1.forEach(r => std.push(stdRow(1,r)));
+    t2.forEach(r => std.push(stdRow(2,r)));
+    t3.forEach(r => std.push(stdRow(3,r)));
+    if (std.length > 1) {
+      const ws = XLSX.utils.aoa_to_sheet(std);
+      ws['!cols'] = [{wch:5},{wch:42},{wch:20},{wch:14},{wch:14},{wch:18},...Array(8).fill({wch:30}),{wch:14},{wch:42}];
+      XLSX.utils.book_append_sheet(wb, ws, label+' Events');
+    }
+
+    if (t5.length) {
+      const arr = [T5]; t5.forEach(r => arr.push(t5Row(5,r)));
+      const ws = XLSX.utils.aoa_to_sheet(arr);
+      ws['!cols'] = [{wch:5},{wch:38},{wch:22},{wch:18},{wch:14},{wch:14},{wch:48},{wch:14},{wch:42}];
+      XLSX.utils.book_append_sheet(wb, ws, label+' T5');
+    }
+    if (sports.length) {
+      const arr = [SPORTS]; sports.forEach(r => arr.push(sportsRow(5,r)));
+      const ws = XLSX.utils.aoa_to_sheet(arr);
+      ws['!cols'] = [{wch:5},{wch:32},{wch:22},{wch:12},{wch:12},{wch:24},{wch:18},{wch:22},{wch:14},{wch:42}];
+      XLSX.utils.book_append_sheet(wb, ws, label+' Sports');
+    }
+    if (pc.length) {
+      const arr = [PC]; pc.forEach(r => arr.push(pcRow(r)));
+      const ws = XLSX.utils.aoa_to_sheet(arr);
+      ws['!cols'] = [{wch:28},{wch:14},{wch:18},{wch:22},{wch:42},{wch:14},{wch:42}];
+      XLSX.utils.book_append_sheet(wb, ws, label+' Parent Comms');
+    }
+    if (hist.length) {
+      const arr = [HIST]; hist.forEach(r => arr.push(histRow(r)));
+      const ws = XLSX.utils.aoa_to_sheet(arr);
+      ws['!cols'] = [{wch:38},{wch:22},{wch:8},{wch:8},{wch:60}];
+      XLSX.utils.book_append_sheet(wb, ws, label+' Historical');
+    }
+  }
+
+  // Legend tab
   const legend = [
     ["MARKETING STATUS TRACKER — 2026"],
     ["Last updated: " + LAST_UPDATED],
     [],
     ["TIERS"],
     ["Tier","Type","Target Runway"],
-    [1,"Major flagship event","6–12 months"],
-    [2,"Significant event","3–6 months"],
-    [3,"Standard event","4–8 weeks"],
-    [5,"Recurring content & reports","Ongoing"],
+    [1,"Major flagship event","12 months"],
+    [2,"Significant event","4 months"],
+    [3,"Standard event","6 weeks"],
+    [5,"Recurring content, ride-alongs & reports","Ongoing"],
     [],
-    ["CAMPAIGN PHASES (Tier 1 / 2 / 3)"],
-    ["Phase","Description"],
-    [0,"WIN meeting — review last year's results"],
-    [1,"Strategy & brief locked"],
-    [2,"Design & content creation"],
-    [3,"Launch — first content live"],
-    [4,"Active promotion window"],
-    [5,"Final push (last 2 weeks)"],
-    [6,"At-event capture"],
-    [7,"Post-event content & WIN"],
-    [],
-    ["TIER 3 SIMPLIFIED FLOW"],
-    ["Phase","Description"],
-    [1,"Brief + design brief"],
-    [2,"Content created & approved"],
-    [3,"Posts go live"],
-    [4,"At-event capture (if applicable)"],
-    [5,"Post-event content"],
+    ["PHASES — all events use 0–7"],
+    ["Phase","Name","What happens"],
+    [0,"WIN","Review last year's results (REQUIRED)"],
+    [1,"Strategy","Strategy & brief locked"],
+    [2,"Design","Design & content creation"],
+    [3,"Launch","First content goes live"],
+    [4,"Promote","Active promotion window"],
+    [5,"Final","Final push (last 2 weeks)"],
+    [6,"Capture","At-event photo / video / live"],
+    [7,"Post + WIN","Recap content + WIN → feeds next P0"],
     [],
     ["LEAD APPROVER DEFAULTS"],
     ["Content area","Default approver"],
@@ -582,54 +760,24 @@ function downloadXlsx() {
     ["Saints content","Catharine"],
     ["Little Saints content","Loise"],
     ["Parent Saints WhatsApp","Catharine"],
-    ["Parent Little Saints WhatsApp","Loise"],
-    ["Same-day posts (any entity)","David — overrides entity default"],
+    ["Parent LS WhatsApp","Loise"],
+    ["Same-day posts (any entity)","David — overrides default"],
     [],
     ["HOW TO EDIT THIS FILE"],
     ["1. Open in Google Sheets (upload to Drive, right-click → Open with → Google Sheets)."],
-    ["2. Edit rows on the Church, Saints School, Saints Sports, or Little Saints tabs."],
-    ["3. To add a new event, add a row at the bottom of the relevant tab. Fill in the Tier column."],
-    ["4. To remove an event, delete the row."],
+    ["2. Edit rows on Church Events / Saints School Events / Little Saints Events / Sports / etc."],
+    ["3. Add new rows at the bottom — keep column order and Tier values consistent."],
+    ["4. Phase cells: ✓ done · 🟢 current · 📅 future date · ❓ to confirm."],
     ["5. Do NOT rename column headers — Claude parses by column name."],
     ["6. Download as .xlsx and send back to David for the live tracker update."],
   ];
-  const ws_l = XLSX.utils.aoa_to_sheet(legend);
-  ws_l['!cols'] = [{wch:26},{wch:50},{wch:24}];
-  XLSX.utils.book_append_sheet(wb, ws_l, "Legend");
+  const wsL = XLSX.utils.aoa_to_sheet(legend);
+  wsL['!cols'] = [{wch:26},{wch:50},{wch:24}];
+  XLSX.utils.book_append_sheet(wb, wsL, "Legend");
 
-  // Church
-  const church = [STD];
-  DATA.church_t1.forEach(r => church.push(stdRow(1, r)));
-  DATA.church_t2.forEach(r => church.push(stdRow(2, r)));
-  DATA.church_t3.forEach(r => church.push(stdRow(3, r)));
-  DATA.church_t5.forEach(r => church.push(stdRow(5, r)));
-  const ws_c = XLSX.utils.aoa_to_sheet(church);
-  ws_c['!cols'] = stdCols;
-  XLSX.utils.book_append_sheet(wb, ws_c, "Church");
-
-  // Saints School
-  const saints = [STD];
-  DATA.saints_t1.forEach(r => saints.push(stdRow(1, r)));
-  DATA.saints_t3.forEach(r => saints.push(stdRow(3, r)));
-  DATA.saints_t5.forEach(r => saints.push(stdRow(5, r)));
-  const ws_s = XLSX.utils.aoa_to_sheet(saints);
-  ws_s['!cols'] = stdCols;
-  XLSX.utils.book_append_sheet(wb, ws_s, "Saints School");
-
-  // Saints Sports
-  const sports = [SPORTS];
-  DATA.saints_sports.forEach(r => sports.push(sportsRow(5, r)));
-  const ws_sp = XLSX.utils.aoa_to_sheet(sports);
-  ws_sp['!cols'] = [{wch:6},{wch:36},{wch:22},{wch:14},{wch:18},{wch:18},{wch:22},{wch:14},{wch:55}];
-  XLSX.utils.book_append_sheet(wb, ws_sp, "Saints Sports");
-
-  // Little Saints
-  const ls = [STD];
-  DATA.ls_t1.forEach(r => ls.push(stdRow(1, r)));
-  DATA.ls_t5.forEach(r => ls.push(stdRow(5, r)));
-  const ws_ls = XLSX.utils.aoa_to_sheet(ls);
-  ws_ls['!cols'] = stdCols;
-  XLSX.utils.book_append_sheet(wb, ws_ls, "Little Saints");
+  addEntity('church', 'Church');
+  addEntity('saints', 'Saints School');
+  addEntity('ls', 'Little Saints');
 
   const dateStr = new Date().toISOString().slice(0,10);
   XLSX.writeFile(wb, "Marketing_Status_Tracker_" + dateStr + ".xlsx");
