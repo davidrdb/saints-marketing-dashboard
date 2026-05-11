@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marketing Status Tracker — 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #222; }
@@ -21,6 +22,21 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #
 .header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
 .header .subtitle { font-size: 0.82rem; opacity: 0.75; margin-top: 3px; }
 .last-updated { font-size: 0.78rem; opacity: 0.65; white-space: nowrap; }
+.header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+.download-btn {
+  background: #c8a951;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.download-btn:hover { background: #b69643; }
 
 .tabs {
   background: #fff;
@@ -162,7 +178,10 @@ tr:hover td { background: #f5f7fb; }
     <h1>Marketing Status Tracker — 2026</h1>
     <div class="subtitle">Church &nbsp;·&nbsp; Saints Christian School &nbsp;·&nbsp; Little Saints Nursery &amp; Preschool</div>
   </div>
-  <div class="last-updated">Last updated: 8 May 2026</div>
+  <div class="header-right">
+    <button class="download-btn" onclick="downloadXlsx()">⬇ Download Excel</button>
+    <div class="last-updated">Last updated: 8 May 2026</div>
+  </div>
 </div>
 
 <nav class="tabs">
@@ -506,6 +525,114 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   if (btn) btn.classList.add('active');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EXCEL DOWNLOAD — builds a multi-tab xlsx from DATA. Round-trip ready:
+// David edits in Google Sheets, downloads xlsx, sends back, Claude parses
+// changes and updates DATA in this file. Keep column headers unchanged for
+// parsing to work.
+// ─────────────────────────────────────────────────────────────────────────────
+function downloadXlsx() {
+  if (typeof XLSX === 'undefined') {
+    alert('Excel library not loaded. Check your internet connection and reload the page, then try again.');
+    return;
+  }
+  const wb = XLSX.utils.book_new();
+  const STD = ['Tier','Event','Date','Phase','Status','Marketing Lead','Posting Window','At-Event Capture','Post-Event','Lead Approver','Notes'];
+  const SPORTS = ['Tier','Fixture','Date','Designer','Posting Window','At-Event Capture','Post-Event','Lead Approver','Notes'];
+  const stdRow = (t,r) => [t, r.name||'', r.date||'', r.phase||'', r.status||'', r.lead||'', r.posting||'', r.capture||'', r.postEvent||'', r.approver||'', r.notes||''];
+  const sportsRow = (t,r) => [t, r.name||'', r.date||'', r.lead||'', r.posting||'', r.capture||'', r.postEvent||'', r.approver||'', r.notes||''];
+  const stdCols = [{wch:6},{wch:42},{wch:22},{wch:9},{wch:14},{wch:18},{wch:28},{wch:28},{wch:28},{wch:14},{wch:55}];
+
+  // Legend
+  const legend = [
+    ["MARKETING STATUS TRACKER — 2026"],
+    ["Last updated: " + LAST_UPDATED],
+    [],
+    ["TIERS"],
+    ["Tier","Type","Target Runway"],
+    [1,"Major flagship event","6–12 months"],
+    [2,"Significant event","3–6 months"],
+    [3,"Standard event","4–8 weeks"],
+    [5,"Recurring content & reports","Ongoing"],
+    [],
+    ["CAMPAIGN PHASES (Tier 1 / 2 / 3)"],
+    ["Phase","Description"],
+    [0,"WIN meeting — review last year's results"],
+    [1,"Strategy & brief locked"],
+    [2,"Design & content creation"],
+    [3,"Launch — first content live"],
+    [4,"Active promotion window"],
+    [5,"Final push (last 2 weeks)"],
+    [6,"At-event capture"],
+    [7,"Post-event content & WIN"],
+    [],
+    ["TIER 3 SIMPLIFIED FLOW"],
+    ["Phase","Description"],
+    [1,"Brief + design brief"],
+    [2,"Content created & approved"],
+    [3,"Posts go live"],
+    [4,"At-event capture (if applicable)"],
+    [5,"Post-event content"],
+    [],
+    ["LEAD APPROVER DEFAULTS"],
+    ["Content area","Default approver"],
+    ["Church content","David"],
+    ["Saints content","Catharine"],
+    ["Little Saints content","Loise"],
+    ["Parent Saints WhatsApp","Catharine"],
+    ["Parent Little Saints WhatsApp","Loise"],
+    ["Same-day posts (any entity)","David — overrides entity default"],
+    [],
+    ["HOW TO EDIT THIS FILE"],
+    ["1. Open in Google Sheets (upload to Drive, right-click → Open with → Google Sheets)."],
+    ["2. Edit rows on the Church, Saints School, Saints Sports, or Little Saints tabs."],
+    ["3. To add a new event, add a row at the bottom of the relevant tab. Fill in the Tier column."],
+    ["4. To remove an event, delete the row."],
+    ["5. Do NOT rename column headers — Claude parses by column name."],
+    ["6. Download as .xlsx and send back to David for the live tracker update."],
+  ];
+  const ws_l = XLSX.utils.aoa_to_sheet(legend);
+  ws_l['!cols'] = [{wch:26},{wch:50},{wch:24}];
+  XLSX.utils.book_append_sheet(wb, ws_l, "Legend");
+
+  // Church
+  const church = [STD];
+  DATA.church_t1.forEach(r => church.push(stdRow(1, r)));
+  DATA.church_t2.forEach(r => church.push(stdRow(2, r)));
+  DATA.church_t3.forEach(r => church.push(stdRow(3, r)));
+  DATA.church_t5.forEach(r => church.push(stdRow(5, r)));
+  const ws_c = XLSX.utils.aoa_to_sheet(church);
+  ws_c['!cols'] = stdCols;
+  XLSX.utils.book_append_sheet(wb, ws_c, "Church");
+
+  // Saints School
+  const saints = [STD];
+  DATA.saints_t1.forEach(r => saints.push(stdRow(1, r)));
+  DATA.saints_t3.forEach(r => saints.push(stdRow(3, r)));
+  DATA.saints_t5.forEach(r => saints.push(stdRow(5, r)));
+  const ws_s = XLSX.utils.aoa_to_sheet(saints);
+  ws_s['!cols'] = stdCols;
+  XLSX.utils.book_append_sheet(wb, ws_s, "Saints School");
+
+  // Saints Sports
+  const sports = [SPORTS];
+  DATA.saints_sports.forEach(r => sports.push(sportsRow(5, r)));
+  const ws_sp = XLSX.utils.aoa_to_sheet(sports);
+  ws_sp['!cols'] = [{wch:6},{wch:36},{wch:22},{wch:14},{wch:18},{wch:18},{wch:22},{wch:14},{wch:55}];
+  XLSX.utils.book_append_sheet(wb, ws_sp, "Saints Sports");
+
+  // Little Saints
+  const ls = [STD];
+  DATA.ls_t1.forEach(r => ls.push(stdRow(1, r)));
+  DATA.ls_t5.forEach(r => ls.push(stdRow(5, r)));
+  const ws_ls = XLSX.utils.aoa_to_sheet(ls);
+  ws_ls['!cols'] = stdCols;
+  XLSX.utils.book_append_sheet(wb, ws_ls, "Little Saints");
+
+  const dateStr = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, "Marketing_Status_Tracker_" + dateStr + ".xlsx");
 }
 </script>
 </body>
