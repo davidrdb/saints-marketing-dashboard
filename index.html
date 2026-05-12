@@ -44,7 +44,7 @@ td { padding: 8px 9px; border-bottom: 1px solid #eef0f4; vertical-align: top; li
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #f5f7fb; }
 
-.phase-cell { font-size: 0.74rem; min-width: 110px; }
+.phase-cell { font-size: 0.74rem; min-width: 110px; white-space: nowrap; }
 .phase-done { color: #2e7d32; }
 .phase-now { background: #fff8d6; color: #6b5b00; font-weight: 600; }
 .phase-future { color: #6b7280; }
@@ -68,6 +68,18 @@ tr:hover td { background: #f5f7fb; }
 .status-delivered     { background: #d1d5db; color: #1f2937; }
 
 .notes-cell { max-width: 220px; font-size: 0.76rem; color: #555; line-height: 1.45; }
+.notes-inner { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+.notes-inner.expanded { -webkit-line-clamp: unset; overflow: visible; }
+.notes-inner::after { content: ' ▸ more'; font-size: 0.65rem; color: #4a7aaa; display: none; }
+.notes-inner:not(.expanded):hover::after { display: inline; }
+
+.scroll-wrap { position: relative; margin-bottom: 8px; overflow: visible; }
+.scroll-wrap .table-wrap { margin-bottom: 0; }
+.scroll-arrow { position: absolute; top: 22px; z-index: 6; width: 26px; height: 26px; border-radius: 50%; background: rgba(45,89,134,0.88); color: #fff; border: none; cursor: pointer; font-size: 18px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transition: opacity 0.2s, background 0.15s; }
+.scroll-arrow:hover { background: #1a3a5c; }
+.scroll-arrow.sa-left  { left: -13px; }
+.scroll-arrow.sa-right { right: -13px; }
+.scroll-arrow[disabled] { opacity: 0.12; pointer-events: none; }
 .warn { color: #c0392b; font-weight: 600; }
 
 .legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 24px; }
@@ -569,7 +581,8 @@ function statusBadge(s) {
 
 function notesCells(n) {
   if (!n) return '';
-  return n.replace(/⚠️/g, '<span class="warn">⚠️</span>').replace(/❓/g, '<span style="color:#e67e22">❓</span>');
+  const html = n.replace(/⚠️/g, '<span class="warn">⚠️</span>').replace(/❓/g, '<span style="color:#e67e22">❓</span>');
+  return `<div class="notes-inner" onclick="this.classList.toggle('expanded')" title="Click to expand / collapse">${html}</div>`;
 }
 
 function buildPhasedTable(tableEl, rows, tier) {
@@ -730,6 +743,30 @@ buildTier5Table(document.getElementById('ls-t5'), DATA.ls_t5);
 buildParentCommsTable(document.getElementById('ls-pc'), DATA.ls_pc);
 buildServiceProductionTable(document.getElementById('ls-sp'), DATA.ls_sp);
 buildHistoricalTable(document.getElementById('ls-hist'), DATA.ls_hist);
+
+// Side-scroll arrows for all table wrappers
+document.querySelectorAll('.table-wrap').forEach(wrap => {
+  const parent = wrap.parentNode;
+  const sw = document.createElement('div');
+  sw.className = 'scroll-wrap';
+  parent.insertBefore(sw, wrap);
+  sw.appendChild(wrap);
+  ['left','right'].forEach(dir => {
+    const btn = document.createElement('button');
+    btn.className = 'scroll-arrow sa-' + dir;
+    btn.innerHTML = dir === 'left' ? '&#8249;' : '&#8250;';
+    btn.addEventListener('click', () => wrap.scrollBy({ left: dir === 'left' ? -300 : 300, behavior: 'smooth' }));
+    sw.appendChild(btn);
+  });
+  function updateArrows() {
+    const [left, right] = sw.querySelectorAll('.scroll-arrow');
+    left.disabled  = wrap.scrollLeft < 2;
+    right.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 2;
+  }
+  wrap.addEventListener('scroll', updateArrows);
+  new ResizeObserver(updateArrows).observe(wrap);
+  updateArrows();
+});
 
 // Tab switching
 function showTab(id, btn) {
