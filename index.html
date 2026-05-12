@@ -34,9 +34,9 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #
 .section-title:first-child { margin-top: 0; }
 .section-sub { font-size: 0.85rem; color: #666; margin: 10px 0 6px; font-weight: 600; }
 
-.table-wrap { overflow-x: auto; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.09); margin-bottom: 8px; }
+.table-wrap { overflow-x: auto; overflow-y: auto; max-height: 440px; border-radius: 8px; box-shadow: 0 1px 5px rgba(0,0,0,0.09); margin-bottom: 8px; }
 table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.79rem; min-width: 900px; }
-th { background: #2d5986; color: #fff; padding: 8px 9px; text-align: left; font-weight: 600; font-size: 0.74rem; white-space: nowrap; position: sticky; top: 48px; z-index: 5; }
+th { background: #2d5986; color: #fff; padding: 8px 9px; text-align: left; font-weight: 600; font-size: 0.74rem; white-space: nowrap; position: sticky; top: 0; z-index: 5; }
 th.phase-th { background: #4a7aaa; text-align: center; min-width: 110px; }
 th.phase-sub { font-size: 0.7rem; font-weight: 600; }
 .phase-label { display: block; font-weight: 400; opacity: 0.8; font-size: 0.65rem; margin-top: 2px; }
@@ -73,12 +73,12 @@ tr:hover td { background: #f5f7fb; }
 .notes-inner::after { content: ' ▸ more'; font-size: 0.65rem; color: #4a7aaa; display: none; }
 .notes-inner:not(.expanded):hover::after { display: inline; }
 
-.scroll-wrap { position: relative; margin-bottom: 8px; overflow: visible; }
+.scroll-wrap { position: relative; margin-bottom: 8px; }
 .scroll-wrap .table-wrap { margin-bottom: 0; }
-.scroll-arrow { position: absolute; top: 22px; z-index: 6; width: 26px; height: 26px; border-radius: 50%; background: rgba(45,89,134,0.88); color: #fff; border: none; cursor: pointer; font-size: 18px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transition: opacity 0.2s, background 0.15s; }
+.scroll-arrow { position: absolute; right: -14px; z-index: 6; width: 26px; height: 26px; border-radius: 50%; background: rgba(45,89,134,0.88); color: #fff; border: none; cursor: pointer; font-size: 14px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transition: background 0.15s; }
 .scroll-arrow:hover { background: #1a3a5c; }
-.scroll-arrow.sa-left  { left: -13px; }
-.scroll-arrow.sa-right { right: -13px; }
+.scroll-arrow.sa-up   { top: 6px; }
+.scroll-arrow.sa-down { top: 38px; }
 .scroll-arrow[disabled] { opacity: 0.12; pointer-events: none; }
 .warn { color: #c0392b; font-weight: 600; }
 
@@ -744,24 +744,25 @@ buildParentCommsTable(document.getElementById('ls-pc'), DATA.ls_pc);
 buildServiceProductionTable(document.getElementById('ls-sp'), DATA.ls_sp);
 buildHistoricalTable(document.getElementById('ls-hist'), DATA.ls_hist);
 
-// Side-scroll arrows for all table wrappers
+// Up/down scroll arrows for all table wrappers
 document.querySelectorAll('.table-wrap').forEach(wrap => {
   const parent = wrap.parentNode;
   const sw = document.createElement('div');
   sw.className = 'scroll-wrap';
   parent.insertBefore(sw, wrap);
   sw.appendChild(wrap);
-  ['left','right'].forEach(dir => {
+  ['up','down'].forEach(dir => {
     const btn = document.createElement('button');
     btn.className = 'scroll-arrow sa-' + dir;
-    btn.innerHTML = dir === 'left' ? '&#8249;' : '&#8250;';
-    btn.addEventListener('click', () => wrap.scrollBy({ left: dir === 'left' ? -300 : 300, behavior: 'smooth' }));
+    btn.innerHTML = dir === 'up' ? '&#9650;' : '&#9660;';
+    btn.title = dir === 'up' ? 'Scroll up' : 'Scroll down';
+    btn.addEventListener('click', () => wrap.scrollBy({ top: dir === 'up' ? -150 : 150, behavior: 'smooth' }));
     sw.appendChild(btn);
   });
   function updateArrows() {
-    const [left, right] = sw.querySelectorAll('.scroll-arrow');
-    left.disabled  = wrap.scrollLeft < 2;
-    right.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 2;
+    const [up, down] = sw.querySelectorAll('.scroll-arrow');
+    up.disabled   = wrap.scrollTop < 2;
+    down.disabled = wrap.scrollTop >= wrap.scrollHeight - wrap.clientHeight - 2;
   }
   wrap.addEventListener('scroll', updateArrows);
   new ResizeObserver(updateArrows).observe(wrap);
