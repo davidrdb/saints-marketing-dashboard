@@ -292,6 +292,7 @@ const LAST_UPDATED = "12 May 2026";
 // Helper to make standard 8-phase entries less verbose
 function P(p0,p1,p2,p3,p4,p5,p6,p7) { return {0:p0,1:p1,2:p2,3:p3,4:p4,5:p5,6:p6,7:p7}; }
 function SP(p1,p2,p3,p4,p5) { return {1:p1,2:p2,3:p3,4:p4,5:p5}; }
+function FP(p1,p2,p3,p4) { return {1:p1,2:p2,3:p3,4:p4}; } // Sports fixture: P1=Plan · P2=Pre-post · P3=Capture · P4=Post
 
 const DATA = {
 
@@ -352,19 +353,20 @@ const DATA = {
 
   church_t5: [
     { item: "Weekly Church Content", date: "Mon / Wed / Fri", owner: "Renier", designer: "Renier/Aidan", status: "Continuous", description: "Tier 5 rail — carries ride-along posts from other tiers. Mon = Shekinah · Tue = The Gathering · Wed = The Gathering + Youth · Thu = This Sunday post.", approver: "David", notes: "Renier monitors Church socials (2hr after-hours window)." },
-    { item: "Mother's Day post (Church)", date: "Posted May 10", owner: "Renier", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "David", notes: "Done yesterday." },
     { item: "Optima Con (offices renovation)", date: "TBC", owner: "Aidan", designer: "Aidan", status: "Planning", description: "Google review + FB collab for office renovation.", approver: "David", notes: "Owner: Aidan." },
-    { item: "Caleb guest speaker slide", date: "Past week", owner: "Renier", designer: "Aidan", status: "Done", description: "Guest speaker preview slide for Caleb's Sunday.", approver: "David", notes: "Done. Back to normal posting." },
     { item: "FEDA Drama (JHB)", date: "Mon 25 May", owner: "Aidan", designer: "Aidan", status: "Scheduled", description: "Saints drama team performing at FEDA in JHB. Aidan confirmed to drive + capture.", approver: "David", notes: "Ask Aimee to chat to Aidan re logistics. Capture + post." },
     { item: "Holiday content shoot", date: "Mid-May", owner: "Renier + Nelisile", designer: "Aidan", status: "Planning", description: "Renier + Nelisile normal photoshoot during school holidays. Aidan edits. Nelisile schedules content to post during holidays.", approver: "David", notes: "Ensures social media stays active over school holidays." },
   ],
 
-  church_hist: [],
+  church_hist: [
+    { event: "Mother's Day Post", dates: "May 10, 2026", tier: "T5", year: "2026", outcome: "Greeting post published on Church socials. Done." },
+    { event: "Caleb Guest Speaker Slide", dates: "May 2026", tier: "T5", year: "2026", outcome: "Preview slide delivered and used. Back to normal posting schedule." },
+  ],
 
   church_sp: [
     { item: "Baby Dedication Slides + Certificates", dateNeeded: "May 24 (service)", assignedTo: "Renier",
-      phases: SP("✓ Brief sent May 11","🟢 Renier designing — PDF draft to David 12 May","📅 May 12 → David approves PDF","📅 Approved → ready for service","📅 May 24 service"),
-      approver: "David", notes: "Slides AND certificates. Renier sends PDF draft to David by end of day 12 May." },
+      phases: SP("✓ Brief sent May 11","✓ PDF received by David 12 May","🟢 With Loise — awaiting approval","📅 Approved → ready for service","📅 May 24 service"),
+      approver: "David", notes: "Slides AND certificates. Received by David 12 May → sent to Loise for approval." },
   ],
 
 
@@ -464,14 +466,12 @@ const DATA = {
 
   saints_t5: [
     { item: "Weekly Saints Content", date: "Mon / Wed / Fri", owner: "Nelisile", designer: "Nelisile/Aidan", status: "Continuous", description: "Tier 5 rail. Nelisile monitors Saints socials (2hr after-hours).", approver: "Catharine", notes: "Also handles New Parent Finding & Converting." },
-    { item: "Mother's Day post (Saints)", date: "Posted May 10", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "Catharine", notes: "Done yesterday." },
+    { item: "Weekly Academic Activity Schedule", date: "Weekly (Mon)", owner: "David", designer: "—", status: "Continuous", description: "Follow up weekly with team on which activities from teachers' academic form can be booked into the content schedule.", approver: "David", notes: "Form built by Aidan, sent to Catharine 12 May 2026." },
     { item: "Saints Board Report Q2", date: "Jun 22, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
     { item: "Saints Board Report Q3", date: "Sep 14, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
     { item: "Saints Board Report Q4", date: "Nov 23, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
     { item: "Winter School Gr 12", date: "Jun 29 – Jul 17", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Intensive Gr 12 winter school programme.", approver: "Catharine", notes: "" },
     { item: "Quarterly Content Check", date: "Quarterly", owner: "David + content leads", designer: "—", status: "Continuous", description: "Bible Club post + Project Padi post + Birthdays-in-Metricool audit.", approver: "David", notes: "Triggered once per quarter." },
-    { item: "Cake & Candy (Gr 5K, 10, 7s)", date: "May 8, 2026", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Class fundraiser captured + posted.", approver: "Catharine", notes: "Past — confirm post live." },
-    { item: "Teacher Workshop #1", date: "May 8–9", owner: "Nelisile", designer: "Aidan", status: "Posted", description: "Teacher workshop content.", approver: "Catharine", notes: "Past." },
     { item: "Teacher Workshop #2", date: "May 12, 14:00", owner: "Nelisile", designer: "Aidan", status: "Scheduled", description: "Christian Teacher Workshop content.", approver: "Catharine", notes: "Tomorrow." },
     { item: "KYB visit at Saints", date: "May 13, 08:00", owner: "Nelisile", designer: "Aidan", status: "Scheduled", description: "Capture + post.", approver: "Catharine", notes: "David on Gathering planning block — Marketing handles." },
     { item: "Drama during Assembly", date: "May 18", owner: "Nelisile", designer: "Aidan", status: "Planning", description: "Capture + post.", approver: "Catharine", notes: "" },
@@ -488,32 +488,48 @@ const DATA = {
   ],
 
   saints_sports: [
-    { fixture: "SSS-Provincials Soccer", date: "May 8, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", prePost: "No — past", capture: "No", postEvent: "Nelisile (May 15 recap)", channel: "Socials + Parents Groups", approver: "Catharine", notes: "Recap on May 15 covers all 3 SSS days." },
-    { fixture: "SSS-Provincials Soccer", date: "May 9, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "No", postEvent: "→ May 15 recap", channel: "Socials + Parents Groups", approver: "Catharine", notes: "Combined into single May 15 recap." },
-    { fixture: "SSS-Provincials Soccer", date: "May 10, 2026 (Sun)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "No", postEvent: "→ May 15 recap", channel: "Socials + Parents Groups", approver: "Catharine", notes: "Combined into single May 15 recap." },
-    { fixture: "SACSA", date: "May 16, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "Good-luck post (Nelisile)", capture: "Nelisile", postEvent: "Nelisile (Same Day)", channel: "Both", approver: "David", notes: "Same-day post — David approves." },
-    { fixture: "SACSA", date: "May 23, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "Good-luck post (Aidan)", capture: "Aidan", postEvent: "Aidan (Same Day)", channel: "Both", approver: "David", notes: "Same-day post — David approves." },
-    { fixture: "SACSA", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "Good-luck post (Aidan)", capture: "Aidan", postEvent: "Aidan (Same Day)", channel: "Both", approver: "David", notes: "Same-day post — David approves. Aidan confirmed coverage." },
-    { fixture: "Junior Netball District Champs", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "❓ TBD", capture: "Nelisile", postEvent: "Nelisile (Same Day)", channel: "Both", approver: "Catharine", notes: "Nelisile confirmed — double-booking resolved (Aidan on SACSA same day)." },
-    { fixture: "SACSA", date: "Jun 6, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "Good-luck post (Nelisile)", capture: "Nelisile", postEvent: "Nelisile (Same Day)", channel: "Both", approver: "David", notes: "Same-day post — David approves. Nelisile confirmed coverage." },
-    { fixture: "Primary Champs Netball", date: "Jun 12, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", prePost: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Coverage still to confirm." },
-    { fixture: "Secondary Champs Netball", date: "Jun 13, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "❓ TBD", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Coverage still to confirm." },
-    { fixture: "Waterstone College Soccer", date: "Jun 26, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", prePost: "❓ TBD (advance hype post needed)", capture: "❓ TBD — who travels?", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "TRAVEL EVENT — marketing person travels with team Fri–Sun. ❓ WHO TRAVELS not confirmed." },
-    { fixture: "Waterstone College Soccer", date: "Jun 27, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD — same traveller", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Day 2 of weekend." },
-    { fixture: "Waterstone College Soccer", date: "Jun 28, 2026 (Sun)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD — same traveller", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Day 3 — final day. Recap post post-weekend." },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 6, 2026 (Thu)", designer: "Aidan", lead: "Nelisile", prePost: "❓ TBD (multi-day — advance hype needed)", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Multi-day national tournament. Coverage plan needed." },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 7, 2026 (Fri)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "" },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 8, 2026 (Sat)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "" },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 9, 2026 (Sun)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Women's Day." },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 10, 2026 (Mon)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Public Holiday." },
-    { fixture: "SSS-Nationals Soccer", date: "Aug 11, 2026 (Tue)", designer: "Aidan", lead: "Nelisile", prePost: "—", capture: "❓ TBD", postEvent: "❓ TBD", channel: "Both", approver: "Catharine", notes: "Final day — full recap post." },
+    // 4-phase system: P1=Plan(4wks out) · P2=Pre-post(1wk out) · P3=Capture(event day) · P4=Post(48h after)
+    { fixture: "SSS-Provincials Soccer", date: "May 8–10, 2026", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Coverage plan set","✓ No pre-post needed","✓ No on-site capture","🟢 May 15 recap (Nelisile)"),
+      channel: "Socials + Parents Groups", approver: "Catharine", notes: "Recap post May 15 covers all 3 days." },
+    { fixture: "SACSA", date: "May 16, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Nelisile confirmed","🟢 Good-luck post this week (Nelisile)","📅 May 16 — Nelisile on-site","📅 May 16-17 recap (Nelisile)"),
+      channel: "Both", approver: "David", notes: "Same-day post — David approves." },
+    { fixture: "SACSA", date: "May 23, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Aidan confirmed","📅 May 16-17 pre-post (Aidan)","📅 May 23 — Aidan on-site","📅 May 23-24 recap (Aidan)"),
+      channel: "Both", approver: "David", notes: "Same-day post — David approves." },
+    { fixture: "SACSA", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Aidan confirmed","📅 May 23-24 pre-post (Aidan)","📅 May 30 — Aidan on-site","📅 May 30-31 recap (Aidan)"),
+      channel: "Both", approver: "David", notes: "Same-day post — David approves." },
+    { fixture: "Junior Netball District Champs", date: "May 30, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Nelisile confirmed","📅 May 23-24 pre-post (Nelisile)","📅 May 30 — Nelisile on-site","📅 May 30-31 recap (Nelisile)"),
+      channel: "Both", approver: "Catharine", notes: "Aidan on SACSA same day — double-booking resolved." },
+    { fixture: "SACSA", date: "Jun 6, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("✓ Nelisile confirmed","📅 May 30-31 pre-post (Nelisile)","📅 Jun 6 — Nelisile on-site","📅 Jun 6-7 recap (Nelisile)"),
+      channel: "Both", approver: "David", notes: "Same-day post — David approves." },
+    { fixture: "Primary Champs Netball", date: "Jun 12, 2026 (Fri)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("📅 May 15 — brief + confirm team","📅 Jun 5-6 pre-post","📅 Jun 12 capture ❓ TBD","📅 Jun 12-13 recap ❓ TBD"),
+      channel: "Both", approver: "Catharine", notes: "Coverage still to confirm." },
+    { fixture: "Secondary Champs Netball", date: "Jun 13, 2026 (Sat)", designer: "Aidan", lead: "Nelisile",
+      phases: FP("📅 May 15 — brief + confirm team","📅 Jun 6-7 pre-post","📅 Jun 13 capture ❓ TBD","📅 Jun 13-14 recap ❓ TBD"),
+      channel: "Both", approver: "Catharine", notes: "Coverage still to confirm." },
+    { fixture: "Waterstone College Soccer", date: "Jun 26–28, 2026", designer: "Aidan", lead: "Nelisile",
+      phases: FP("📅 May 28 — brief + confirm who travels ❓","📅 Jun 19 hype post pre-travel","📅 Jun 26-28 — travel coverage ❓ TBD","📅 Jun 29-30 full recap"),
+      channel: "Both", approver: "Catharine", notes: "TRAVEL EVENT — full weekend. ❓ WHO TRAVELS not yet confirmed." },
+    { fixture: "SSS-Nationals Soccer", date: "Aug 6–11, 2026", designer: "Aidan", lead: "Nelisile",
+      phases: FP("📅 Jul 9 — brief + plan coverage","📅 Jul 30 hype post pre-nationals","📅 Aug 6-11 — capture ❓ TBD","📅 Aug 12-13 recap"),
+      channel: "Both", approver: "Catharine", notes: "Multi-day national tournament. Full coverage plan needed by Jul 9." },
   ],
 
   saints_pc: [
     { channel: "Saints Parent WhatsApp", owner: "Bertie", cadence: "As needed", nextDate: "❓ TBD", topic: "❓ TBD", approver: "Catharine", notes: "Standing Mon 09:30 check-in with David." },
   ],
 
-  saints_hist: [],
+  saints_hist: [
+    { event: "Mother's Day Post", dates: "May 10, 2026", tier: "T5", year: "2026", outcome: "Greeting post published on Saints socials. Done." },
+    { event: "Cake & Candy (Gr 5K, 10, 7s)", dates: "May 8, 2026", tier: "T5", year: "2026", outcome: "Class fundraiser captured + posted." },
+    { event: "Teacher Workshop #1", dates: "May 8–9, 2026", tier: "T5", year: "2026", outcome: "Workshop content captured + posted." },
+  ],
 
   saints_sp: [],
 
@@ -539,7 +555,6 @@ const DATA = {
 
   ls_t5: [
     { item: "Weekly Little Saints Content", date: "Mon / Wed / Fri", owner: "Tebogo", designer: "Tebogo/Aidan", status: "Continuous", description: "Tier 5 rail. Tebogo monitors LS socials (2hr after-hours).", approver: "Loise", notes: "" },
-    { item: "Mother's Day post (Little Saints)", date: "Posted May 10", owner: "Tebogo", designer: "Aidan", status: "Posted", description: "Greeting post for Mother's Day.", approver: "Loise", notes: "Done yesterday." },
     { item: "Little Saints Board Report Q2", date: "Jun 8, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
     { item: "Little Saints Board Report Q3", date: "Sep 7, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
     { item: "Little Saints Board Report Q4", date: "Nov 16, 2026", owner: "David", designer: "—", status: "Planning", description: "Quarterly board report (~1 hr to finalise).", approver: "David", notes: "" },
@@ -551,7 +566,9 @@ const DATA = {
     { channel: "Little Saints Parent WhatsApp", owner: "Tebogo", cadence: "As needed", nextDate: "❓ TBD", topic: "❓ TBD", approver: "Loise", notes: "" },
   ],
 
-  ls_hist: [],
+  ls_hist: [
+    { event: "Mother's Day Post", dates: "May 10, 2026", tier: "T5", year: "2026", outcome: "Greeting post published on Little Saints socials. Done." },
+  ],
 
   ls_sp: [],
 
@@ -637,25 +654,27 @@ function buildTier5Table(tableEl, rows) {
 
 function buildSportsTable(tableEl, rows) {
   if (!rows || rows.length === 0) { tableEl.innerHTML = '<thead><tr><th>—</th></tr></thead>'; return; }
+  const fixturePhaseLabels = ['Plan','Pre-post','Capture','Post'];
+  const phaseHead = fixturePhaseLabels.map((lbl,i) => `<th class="phase-th phase-sub">P${i+1}<span class="phase-label">${lbl}</span></th>`).join('');
   tableEl.innerHTML = `
     <thead><tr>
       <th>Fixture</th><th>Date</th><th>Designer</th><th>Mkt Lead</th>
-      <th>Pre-Event Post</th><th>At-Event Capture</th><th>Post-Event</th>
+      ${phaseHead}
       <th>Channel</th><th>Approver</th><th>Notes</th>
     </tr></thead>
-    <tbody>${rows.map(r => `
-      <tr>
+    <tbody>${rows.map(r => {
+      const phaseCells = [1,2,3,4].map(p => `<td class="phase-cell">${phaseCellHTML(r.phases && r.phases[p])}</td>`).join('');
+      return `<tr>
         <td style="font-weight:600;min-width:180px">${r.fixture}</td>
         <td style="white-space:nowrap">${r.date}</td>
         <td>${r.designer || '—'}</td>
         <td>${r.lead || '—'}</td>
-        <td>${r.prePost || '—'}</td>
-        <td>${r.capture || '—'}</td>
-        <td>${r.postEvent || '—'}</td>
+        ${phaseCells}
         <td style="white-space:nowrap">${r.channel || '—'}</td>
         <td><strong>${r.approver || '—'}</strong></td>
         <td class="notes-cell">${notesCells(r.notes)}</td>
-      </tr>`).join('')}</tbody>`;
+      </tr>`;
+    }).join('')}</tbody>`;
 }
 
 function buildParentCommsTable(tableEl, rows) {
@@ -827,7 +846,7 @@ function downloadXlsx() {
     return [t, r.name, r.date, r.status, r.lead||'', r.designer||'', ph(0), ph(1), ph(2), ph(3), ph(4), ph(5), ph(6), ph(7), r.approver||'', r.notes||''];
   };
   const t5Row = (t,r) => [t, r.item, r.date||'', r.owner||'', r.designer||'', r.status||'', r.description||'', r.approver||'', r.notes||''];
-  const sportsRow = (t,r) => [t, r.fixture, r.date, r.designer||'', r.lead||'', r.prePost||'', r.capture||'', r.postEvent||'', r.channel||'', r.approver||'', r.notes||''];
+  const sportsRow = (t,r) => [t, r.fixture, r.date, r.designer||'', r.lead||'', r.phases&&r.phases[1]||'', r.phases&&r.phases[2]||'', r.phases&&r.phases[3]||'', r.phases&&r.phases[4]||'', r.channel||'', r.approver||'', r.notes||''];
   const pcRow = (r) => [r.channel, r.owner||'', r.cadence||'', r.nextDate||'', r.topic||'', r.approver||'', r.notes||''];
   const histRow = (r) => [r.event, r.dates, r.tier||'', r.year, r.outcome||''];
 
